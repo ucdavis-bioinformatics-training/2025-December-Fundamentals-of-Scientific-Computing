@@ -1,0 +1,47 @@
+theme: jekyll-theme-minimal
+title: 'Fundamentals of Scientific Computing'
+show_downloads: True
+google_analytics: True
+navigation:
+  - title: Home
+    url: /
+
+  - heading: Introduction and Lectures
+  - title: Intro to the Workshop and Core
+    url: base/welcome
+  - title: Schedule
+    url: base/schedule
+  - title: What is Bioinformatics/Genomics?
+    url: https://raw.githubusercontent.com/ucdavis-bioinformatics-training/ucdavis-bioinformatics-training.presentations/master/genomics/Genomics_a_perspective_Dec_2021.pdf
+  - title: Closing thoughts
+    url: base/closing
+
+  - heading: Support
+  - title: Zoom
+    url: base/zoom
+  - title: Slack
+    url: base/slack
+  - title: Cheat Sheets
+    url: base/cheatSheetIndex
+  - title: Software and Links
+    url: software_scripts/software
+  - title: Scripts
+    url: software_scripts/scripts_links
+  - title: Github page
+    url: https://github.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis
+  - title: Report Errors
+    url: https://github.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/issues
+  - title: Biocore website
+    url: http://bioinformatics.ucdavis.edu
+
+  - heading: Command Line Interface 
+  - title: CLI
+    url: base/cli_prerequisites
+
+  - heading: R
+  - title: R
+    url: base/r_prerequisites
+
+  - heading: Python
+
+  - heading: Installations
