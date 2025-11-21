@@ -1,0 +1,11 @@
+# Troubleshooting
+
+Even advanced users of R run into problems often. Here are some of the most common errors that can often be resolved quickly:
+
+- file is not in the right place, or is incorrectly named
+- improperly formatted files
+- missing values
+- spelling errors
+- incorrectly named parameters
+
+For more complex errors, the help documentation of a function is a good place to start. Additionally, the online community of R users is extremely active and helpful. If you've got a question, it's extremely likely it's been asked and answered many times already!
