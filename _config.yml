@@ -43,5 +43,7 @@ navigation:
     url: base/r_prerequisites
 
   - heading: Python
+  - title: Python
+    url: base/intro2python
 
   - heading: Installations
