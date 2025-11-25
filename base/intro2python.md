@@ -1,6 +1,6 @@
 <style>
-table {
-    width: 40% !important;
+.my-python table {
+    width: 50% !important;
     border-collapse: collapse !important;
     margin: 20px auto !important;
     font-family: 'Arial', sans-serif !important;
@@ -146,6 +146,8 @@ print("Hello World!")
 ## Basic Data Types
 ### Built in data types
 
+<div class="my-python">
+    
 | Data type | Functions |
 | :-: | :-: |
 | Text/Character | str() |
@@ -156,6 +158,8 @@ print("Hello World!")
 | Boolean | bool() |
 | Binary | bytes(), bytearray(), memoryview() |
 | None | None |
+
+</div>
 
 
 ### Integers, Floating-point numbers, booleans, strings.
