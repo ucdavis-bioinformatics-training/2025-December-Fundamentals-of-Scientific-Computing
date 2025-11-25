@@ -102,20 +102,55 @@ print("Hello World!")
 ## Basic Data Types
 ### Built in data types
 
-.tableform table {
-    width: auto;
+<style>
+table {
+    width: 30%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
-.tableform th, .tableform td {
-    text-align: center
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #34495e;
 }
 
-.tableform tbody tr:hover {
-    background-color: #ddd;
+td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
-<div class="tableform">
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+td:hover {
+    background-color: #e8f4f8;
+}
+
+td, tr {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+</style>
 
 | Data type | Functions |
 | :-: | :-: |
@@ -128,7 +163,6 @@ print("Hello World!")
 | Binary | bytes(), bytearray(), memoryview() |
 | None | None |
 
-</div>
 
 
 ### Integers, Floating-point numbers, booleans, strings.
