@@ -99,5 +99,194 @@ print("Hello World!")
     Hello World!
 
 
-## Basic Data Types: Integers, Floating-point numbers, booleans, strings.
+## Basic Data Types
+### Built in data types
 
+| Data type | Functions |
+| :-: | :-: |
+| Text/Character | str() |
+| Numeric | int(), float(), complex() |
+| Sequence | list[], tuple()/(), range() |
+| Mapping | dict()/{} |
+| Set | set()/{}, frozenset() |
+| Boolean | bool() |
+| Binary | bytes(), bytearray(), memoryview() |
+| None | None |
+
+
+### Integers, Floating-point numbers, booleans, strings.
+
+| Language | Python | R |
+| :-: | :-: | :-: |
+| Integer data | int() | as.integer(), integer() |
+| Float data | float() | numeric() |
+| Logical data | bool(), [True, False] | as.logical(), logical(), (TRUE, FALSE) |
+| Character data | str() | as.character(), character() |
+
+#### Integer
+
+
+```python
+a = int(5)
+```
+
+
+```python
+a
+```
+
+
+
+
+    5
+
+
+
+
+```python
+b = 5
+```
+
+
+```python
+b
+```
+
+
+
+
+    5
+
+
+
+
+```python
+type(a)
+```
+
+
+
+
+    int
+
+
+
+
+```python
+type(b)
+```
+
+
+
+
+    int
+
+
+
+#### Arithmetic operators
+<img src="figures/operators.png" alt="if flow" width="600px"/>
+
+#### Exercise
+Creat different data types and perform some operations.
+
+### Sequence data
+| Data type | Usage | Characteristics |
+| :-: | :-: | :-: |
+| Lists | Store multiple items in a single variable | Ordered, mutable, allow duplicate values |
+| Tuples | Store multiple items in a single variable | Ordered, immutable, allow duplicate values |
+| Range | Create an immutable sequence of numbers | Immutable, a range of integers |
+
+
+__*Immutable* means that an object's state or value cannot be changed after its creation.__
+
+
+```python
+range1 = range(6)
+```
+
+
+```python
+range1[0]
+```
+
+
+
+
+    0
+
+
+
+
+```python
+range1[0] = 3
+```
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    Cell In[16], line 1
+    ----> 1 range1[0] = 3
+
+
+    TypeError: 'range' object does not support item assignment
+
+
+
+```python
+range1
+```
+
+
+
+
+    range(0, 6)
+
+
+
+
+```python
+len(range1)
+```
+
+
+
+
+    6
+
+
+
+
+```python
+range1[5]
+```
+
+
+
+
+    5
+
+
+
+
+```python
+range1[6] = 8
+```
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    Cell In[20], line 1
+    ----> 1 range1[6] = 8
+
+
+    TypeError: 'range' object does not support item assignment
+
+
+
+```python
+
+```
