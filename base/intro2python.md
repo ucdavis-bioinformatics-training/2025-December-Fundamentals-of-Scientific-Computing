@@ -115,7 +115,7 @@ print("Hello World!")
     cursor: pointer;
 }
 
-<div classs="tableform">
+<div class="tableform">
 
 | Data type | Functions |
 | :-: | :-: |
