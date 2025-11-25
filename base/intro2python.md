@@ -102,6 +102,21 @@ print("Hello World!")
 ## Basic Data Types
 ### Built in data types
 
+.tableform table {
+    width: auto;
+}
+
+.tableform th, .tableform td {
+    text-align: center
+}
+
+.tableform tbody tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+<div classs="tableform">
+
 | Data type | Functions |
 | :-: | :-: |
 | Text/Character | str() |
@@ -112,6 +127,8 @@ print("Hello World!")
 | Boolean | bool() |
 | Binary | bytes(), bytearray(), memoryview() |
 | None | None |
+
+</div>
 
 
 ### Integers, Floating-point numbers, booleans, strings.
@@ -190,6 +207,7 @@ type(b)
 Creat different data types and perform some operations.
 
 ### Sequence data
+
 | Data type | Usage | Characteristics |
 | :-: | :-: | :-: |
 | Lists | Store multiple items in a single variable | Ordered, mutable, allow duplicate values |
