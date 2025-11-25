@@ -8,7 +8,7 @@
     background-color: white !important;
 }
 
-th {
+.my-python th {
     background-color: #2c3e50 !important;
     color: white !important;
     padding: 12px 15px !important;
@@ -17,27 +17,27 @@ th {
     border: 1px solid #34495e !important;
 }
 
-td {
+.my-python td {
     padding: 10px 15px !important;
     text-align: center !important;
     border: 1px solid #ddd !important;
     color: #333 !important;
 }
 
-tbody tr:hover {
+.my-python tbody tr:hover {
     background-color: #f5f5f5 !important;
     cursor: pointer !important;
 }
 
-tbody tr:nth-child(even) {
+.my-python tbody tr:nth-child(even) {
     background-color: #f9f9f9 !important;
 }
 
-tbody tr:nth-child(odd) {
+.my-python tbody tr:nth-child(odd) {
     background-color: white !important;
 }
 
-tr {
+.my-python tr {
     transition: background-color 0.2s ease !important;
 }
 </style>
