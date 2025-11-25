@@ -103,8 +103,8 @@ print("Hello World!")
 ### Built in data types
 
 <style>
+/* Default table styling */
 table {
-    width: 30%;
     border-collapse: collapse;
     margin: 20px auto;
     font-family: 'Arial', sans-serif;
@@ -112,6 +112,24 @@ table {
     background-color: white;
 }
 
+/* Different width classes */
+.table-30 {
+    width: 30%;
+}
+
+.table-50 {
+    width: 50%;
+}
+
+.table-70 {
+    width: 70%;
+}
+
+.table-full {
+    width: 100%;
+}
+
+/* Header styling */
 th {
     background-color: #2c3e50;
     color: white;
@@ -121,6 +139,7 @@ th {
     border: 1px solid #34495e;
 }
 
+/* Cell styling */
 td {
     padding: 10px 15px;
     text-align: center;
@@ -128,6 +147,7 @@ td {
     color: #333;
 }
 
+/* Hover effect for rows */
 tbody tr:hover {
     background-color: #f5f5f5;
     transform: scale(1.02);
@@ -135,6 +155,7 @@ tbody tr:hover {
     cursor: pointer;
 }
 
+/* Alternating row colors */
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -143,15 +164,18 @@ tbody tr:nth-child(odd) {
     background-color: white;
 }
 
+/* Hover effect for individual cells */
 td:hover {
     background-color: #e8f4f8;
 }
 
+/* Add smooth transitions */
 td, tr {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 </style>
 
+<div class="table-30">
 | Data type | Functions |
 | :-: | :-: |
 | Text/Character | str() |
@@ -162,17 +186,19 @@ td, tr {
 | Boolean | bool() |
 | Binary | bytes(), bytearray(), memoryview() |
 | None | None |
-
+</div>
 
 
 ### Integers, Floating-point numbers, booleans, strings.
 
+<div class="table-50">
 | Language | Python | R |
 | :-: | :-: | :-: |
 | Integer data | int() | as.integer(), integer() |
 | Float data | float() | numeric() |
 | Logical data | bool(), [True, False] | as.logical(), logical(), (TRUE, FALSE) |
 | Character data | str() | as.character(), character() |
+</div>
 
 #### Integer
 
@@ -242,11 +268,13 @@ Creat different data types and perform some operations.
 
 ### Sequence data
 
+<div class="table-70"></div>
 | Data type | Usage | Characteristics |
 | :-: | :-: | :-: |
 | Lists | Store multiple items in a single variable | Ordered, mutable, allow duplicate values |
 | Tuples | Store multiple items in a single variable | Ordered, immutable, allow duplicate values |
 | Range | Create an immutable sequence of numbers | Immutable, a range of integers |
+</div>
 
 
 __*Immutable* means that an object's state or value cannot be changed after its creation.__
