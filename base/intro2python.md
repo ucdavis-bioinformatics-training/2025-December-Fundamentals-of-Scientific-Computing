@@ -164,18 +164,15 @@ tbody tr:nth-child(odd) {
     background-color: white;
 }
 
-/* Hover effect for individual cells */
-td:hover {
-    background-color: #e8f4f8;
-}
-
 /* Add smooth transitions */
-td, tr {
+tr {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 </style>
 
+
 <div class="table-30">
+    
 | Data type | Functions |
 | :-: | :-: |
 | Text/Character | str() |
@@ -186,18 +183,21 @@ td, tr {
 | Boolean | bool() |
 | Binary | bytes(), bytearray(), memoryview() |
 | None | None |
+
 </div>
 
 
 ### Integers, Floating-point numbers, booleans, strings.
 
 <div class="table-50">
+    
 | Language | Python | R |
 | :-: | :-: | :-: |
 | Integer data | int() | as.integer(), integer() |
 | Float data | float() | numeric() |
 | Logical data | bool(), [True, False] | as.logical(), logical(), (TRUE, FALSE) |
 | Character data | str() | as.character(), character() |
+
 </div>
 
 #### Integer
@@ -269,11 +269,13 @@ Creat different data types and perform some operations.
 ### Sequence data
 
 <div class="table-70"></div>
+
 | Data type | Usage | Characteristics |
 | :-: | :-: | :-: |
 | Lists | Store multiple items in a single variable | Ordered, mutable, allow duplicate values |
 | Tuples | Store multiple items in a single variable | Ordered, immutable, allow duplicate values |
 | Range | Create an immutable sequence of numbers | Immutable, a range of integers |
+
 </div>
 
 
