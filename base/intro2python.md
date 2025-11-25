@@ -126,8 +126,19 @@ table.custom-table td {
     text-align: center;
 }
 
-table.custom-table tr:nth-child(even) {
-    background: #f5f5f5;
+table.custom-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table.custom-table tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+table.custom-table tr:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 </style>
 
@@ -159,7 +170,7 @@ table.custom-table tr:nth-child(even) {
 table.width-50 {
     border-collapse: collapse;
     margin: 20px auto; 
-    width: 100%;
+    width: 50%;
     font-size: 15px;
     border: 2px solid #444;
 }
@@ -304,7 +315,7 @@ Creat different data types and perform some operations.
 table.width-70 {
     border-collapse: collapse;
     margin: 20px auto; 
-    width: 100%;
+    width: 70%;
     font-size: 15px;
     border: 2px solid #444;
 }
