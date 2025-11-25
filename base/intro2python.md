@@ -172,6 +172,56 @@ print("Hello World!")
 | Character data | str() | as.character(), character() |
 
 
+<style>
+/* Custom table style */
+table.custom-table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+    font-size: 15px;
+    border: 2px solid #444;
+}
+
+table.custom-table th {
+    background: #2d2d2d;
+    color: white;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    text-align: center;
+}
+
+table.custom-table td {
+    padding: 8px 12px;
+    border: 1px solid #999;
+    text-align: center;
+}
+
+table.custom-table tr:nth-child(even) {
+    background: #f5f5f5;
+}
+</style>
+
+<table class="custom-table">
+<thead>
+<tr>
+    <th>Data type</th>
+    <th>Functions</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>Text/Character</td><td>str()</td></tr>
+<tr><td>Numeric</td><td>int(), float(), complex()</td></tr>
+<tr><td>Sequence</td><td>list[], tuple()/(), range()</td></tr>
+<tr><td>Mapping</td><td>dict()/{} </td></tr>
+<tr><td>Set</td><td>set()/{}, frozenset()</td></tr>
+<tr><td>Boolean</td><td>bool()</td></tr>
+<tr><td>Binary</td><td>bytes(), bytearray(), memoryview()</td></tr>
+<tr><td>None</td><td>None</td></tr>
+</tbody>
+</table>
+
+
 #### Integer
 
 
