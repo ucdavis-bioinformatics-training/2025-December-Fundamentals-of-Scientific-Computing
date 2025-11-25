@@ -1,3 +1,47 @@
+<style>
+table {
+    width: 40% !important;
+    border-collapse: collapse !important;
+    margin: 20px auto !important;
+    font-family: 'Arial', sans-serif !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    background-color: white !important;
+}
+
+th {
+    background-color: #2c3e50 !important;
+    color: white !important;
+    padding: 12px 15px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    border: 1px solid #34495e !important;
+}
+
+td {
+    padding: 10px 15px !important;
+    text-align: center !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5 !important;
+    cursor: pointer !important;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9 !important;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white !important;
+}
+
+tr {
+    transition: background-color 0.2s ease !important;
+}
+</style>
+
 # Introduction to Python
 ## Why Python
 
@@ -102,55 +146,6 @@ print("Hello World!")
 ## Basic Data Types
 ### Built in data types
 
-<style>
-/* Unique page scope - change "my-page" to something unique for each file */
-.my-page table {
-    width: 40%;
-    border-collapse: collapse;
-    margin: 20px auto;
-    font-family: 'Arial', sans-serif;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-
-.my-page th {
-    background-color: #2c3e50;
-    color: white;
-    padding: 12px 15px;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid #34495e;
-}
-
-.my-page td {
-    padding: 10px 15px;
-    text-align: center;
-    border: 1px solid #ddd;
-    color: #333;
-}
-
-.my-page tbody tr:hover {
-    background-color: #f5f5f5;
-    transform: scale(1.02);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.my-page tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.my-page tbody tr:nth-child(odd) {
-    background-color: white;
-}
-
-.my-page tr {
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-</style>
-
-<div class="my-page">
-    
 | Data type | Functions |
 | :-: | :-: |
 | Text/Character | str() |
@@ -162,13 +157,9 @@ print("Hello World!")
 | Binary | bytes(), bytearray(), memoryview() |
 | None | None |
 
-</div>
-
 
 ### Integers, Floating-point numbers, booleans, strings.
 
-<div class="my-page">
-    
 | Language | Python | R |
 | :-: | :-: | :-: |
 | Integer data | int() | as.integer(), integer() |
@@ -176,7 +167,6 @@ print("Hello World!")
 | Logical data | bool(), [True, False] | as.logical(), logical(), (TRUE, FALSE) |
 | Character data | str() | as.character(), character() |
 
-</div>
 
 #### Integer
 
@@ -246,15 +236,11 @@ Creat different data types and perform some operations.
 
 ### Sequence data
 
-<div class="my-page">
-
 | Data type | Usage | Characteristics |
 | :-: | :-: | :-: |
 | Lists | Store multiple items in a single variable | Ordered, mutable, allow duplicate values |
 | Tuples | Store multiple items in a single variable | Ordered, immutable, allow duplicate values |
 | Range | Create an immutable sequence of numbers | Immutable, a range of integers |
-
-</div>
 
 
 __*Immutable* means that an object's state or value cannot be changed after its creation.__
