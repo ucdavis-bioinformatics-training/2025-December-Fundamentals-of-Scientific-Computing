@@ -103,8 +103,8 @@ print("Hello World!")
 ### Built in data types
 
 <style>
-/* Default table styling */
-table {
+/* Unique page scope - change this class name for each different page */
+.my-unique-page table {
     border-collapse: collapse;
     margin: 20px auto;
     font-family: 'Arial', sans-serif;
@@ -112,25 +112,37 @@ table {
     background-color: white;
 }
 
-/* Different width classes */
-.table-30 {
+/* Width classes - only work inside .my-unique-page */
+.my-unique-page .w-30 {
     width: 30%;
 }
 
-.table-50 {
+.my-unique-page .w-40 {
+    width: 40%;
+}
+
+.my-unique-page .w-50 {
     width: 50%;
 }
 
-.table-70 {
+.my-unique-page .w-60 {
+    width: 60%;
+}
+
+.my-unique-page .w-70 {
     width: 70%;
 }
 
-.table-full {
+.my-unique-page .w-80 {
+    width: 80%;
+}
+
+.my-unique-page .w-100 {
     width: 100%;
 }
 
 /* Header styling */
-th {
+.my-unique-page th {
     background-color: #2c3e50;
     color: white;
     padding: 12px 15px;
@@ -140,7 +152,7 @@ th {
 }
 
 /* Cell styling */
-td {
+.my-unique-page td {
     padding: 10px 15px;
     text-align: center;
     border: 1px solid #ddd;
@@ -148,7 +160,7 @@ td {
 }
 
 /* Hover effect for rows */
-tbody tr:hover {
+.my-unique-page tbody tr:hover {
     background-color: #f5f5f5;
     transform: scale(1.02);
     transition: all 0.3s ease;
@@ -156,22 +168,24 @@ tbody tr:hover {
 }
 
 /* Alternating row colors */
-tbody tr:nth-child(even) {
+.my-unique-page tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tbody tr:nth-child(odd) {
+.my-unique-page tbody tr:nth-child(odd) {
     background-color: white;
 }
 
 /* Add smooth transitions */
-tr {
+.my-unique-page tr {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 </style>
+<!-- Wrap your entire page content here -->
+<div class="my-unique-page">
 
 
-<div class="table-30">
+<div class="w-30">
     
 | Data type | Functions |
 | :-: | :-: |
@@ -189,7 +203,7 @@ tr {
 
 ### Integers, Floating-point numbers, booleans, strings.
 
-<div class="table-50">
+<div class="w-50">
     
 | Language | Python | R |
 | :-: | :-: | :-: |
@@ -268,7 +282,7 @@ Creat different data types and perform some operations.
 
 ### Sequence data
 
-<div class="table-70"></div>
+<div class="w-70">
 
 | Data type | Usage | Characteristics |
 | :-: | :-: | :-: |
