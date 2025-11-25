@@ -103,8 +103,9 @@ print("Hello World!")
 ### Built in data types
 
 <style>
-/* Unique page scope - change this class name for each different page */
-.my-unique-page table {
+/* Unique page scope - change "my-page" to something unique for each file */
+.my-page table {
+    width: 40%;
     border-collapse: collapse;
     margin: 20px auto;
     font-family: 'Arial', sans-serif;
@@ -112,37 +113,7 @@ print("Hello World!")
     background-color: white;
 }
 
-/* Width classes - only work inside .my-unique-page */
-.my-unique-page .w-30 {
-    width: 30%;
-}
-
-.my-unique-page .w-40 {
-    width: 40%;
-}
-
-.my-unique-page .w-50 {
-    width: 50%;
-}
-
-.my-unique-page .w-60 {
-    width: 60%;
-}
-
-.my-unique-page .w-70 {
-    width: 70%;
-}
-
-.my-unique-page .w-80 {
-    width: 80%;
-}
-
-.my-unique-page .w-100 {
-    width: 100%;
-}
-
-/* Header styling */
-.my-unique-page th {
+.my-page th {
     background-color: #2c3e50;
     color: white;
     padding: 12px 15px;
@@ -151,41 +122,34 @@ print("Hello World!")
     border: 1px solid #34495e;
 }
 
-/* Cell styling */
-.my-unique-page td {
+.my-page td {
     padding: 10px 15px;
     text-align: center;
     border: 1px solid #ddd;
     color: #333;
 }
 
-/* Hover effect for rows */
-.my-unique-page tbody tr:hover {
+.my-page tbody tr:hover {
     background-color: #f5f5f5;
     transform: scale(1.02);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-/* Alternating row colors */
-.my-unique-page tbody tr:nth-child(even) {
+.my-page tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.my-unique-page tbody tr:nth-child(odd) {
+.my-page tbody tr:nth-child(odd) {
     background-color: white;
 }
 
-/* Add smooth transitions */
-.my-unique-page tr {
+.my-page tr {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 </style>
-<!-- Wrap your entire page content here -->
-<div class="my-unique-page">
 
-
-<div class="w-30">
+<div class="my-page">
     
 | Data type | Functions |
 | :-: | :-: |
@@ -203,7 +167,7 @@ print("Hello World!")
 
 ### Integers, Floating-point numbers, booleans, strings.
 
-<div class="w-50">
+<div class="my-page">
     
 | Language | Python | R |
 | :-: | :-: | :-: |
@@ -282,7 +246,7 @@ Creat different data types and perform some operations.
 
 ### Sequence data
 
-<div class="w-70">
+<div class="my-page">
 
 | Data type | Usage | Characteristics |
 | :-: | :-: | :-: |
