@@ -1,47 +1,3 @@
-<style>
-.my-python table {
-    width: 50% !important;
-    border-collapse: collapse !important;
-    margin: 20px auto !important;
-    font-family: 'Arial', sans-serif !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    background-color: white !important;
-}
-
-.my-python th {
-    background-color: #2c3e50 !important;
-    color: white !important;
-    padding: 12px 15px !important;
-    text-align: center !important;
-    font-weight: bold !important;
-    border: 1px solid #34495e !important;
-}
-
-.my-python td {
-    padding: 10px 15px !important;
-    text-align: center !important;
-    border: 1px solid #ddd !important;
-    color: #333 !important;
-}
-
-.my-python tbody tr:hover {
-    background-color: #f5f5f5 !important;
-    cursor: pointer !important;
-}
-
-.my-python tbody tr:nth-child(even) {
-    background-color: #f9f9f9 !important;
-}
-
-.my-python tbody tr:nth-child(odd) {
-    background-color: white !important;
-}
-
-.my-python tr {
-    transition: background-color 0.2s ease !important;
-}
-</style>
-
 # Introduction to Python
 ## Why Python
 
@@ -146,38 +102,12 @@ print("Hello World!")
 ## Basic Data Types
 ### Built in data types
 
-<div class="my-python">
-    
-| Data type | Functions |
-| :-: | :-: |
-| Text/Character | str() |
-| Numeric | int(), float(), complex() |
-| Sequence | list[], tuple()/(), range() |
-| Mapping | dict()/{} |
-| Set | set()/{}, frozenset() |
-| Boolean | bool() |
-| Binary | bytes(), bytearray(), memoryview() |
-| None | None |
-
-</div>
-
-
-### Integers, Floating-point numbers, booleans, strings.
-
-| Language | Python | R |
-| :-: | :-: | :-: |
-| Integer data | int() | as.integer(), integer() |
-| Float data | float() | numeric() |
-| Logical data | bool(), [True, False] | as.logical(), logical(), (TRUE, FALSE) |
-| Character data | str() | as.character(), character() |
-
-
 <style>
 /* Custom table style */
 table.custom-table {
     border-collapse: collapse;
     margin: 1em 0;
-    width: 100%;
+    width: 40%;
     font-size: 15px;
     border: 2px solid #444;
 }
@@ -200,6 +130,107 @@ table.custom-table tr:nth-child(even) {
     background: #f5f5f5;
 }
 </style>
+
+<table class="custom-table">
+<thead>
+<tr>
+    <th>Data type</th>
+    <th>Functions</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>Text/Character</td><td>str()</td></tr>
+<tr><td>Numeric</td><td>int(), float(), complex()</td></tr>
+<tr><td>Sequence</td><td>list[], tuple()/(), range()</td></tr>
+<tr><td>Mapping</td><td>dict()/{} </td></tr>
+<tr><td>Set</td><td>set()/{}, frozenset()</td></tr>
+<tr><td>Boolean</td><td>bool()</td></tr>
+<tr><td>Binary</td><td>bytes(), bytearray(), memoryview()</td></tr>
+<tr><td>None</td><td>None</td></tr>
+</tbody>
+</table>
+
+
+### Integers, Floating-point numbers, booleans, strings.
+
+<style>
+/* Custom table style */
+table.width-50 {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+    font-size: 15px;
+    border: 2px solid #444;
+}
+
+table.width-50 th {
+    background: #2d2d2d;
+    color: white;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    text-align: center;
+}
+
+table.width-50 td {
+    padding: 8px 12px;
+    border: 1px solid #999;
+    text-align: center;
+}
+
+table.width-50 tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table.width-50 tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+table.width-50 tr:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+</style>
+
+<table class="width-50">
+<thead>
+<tr>
+    <th>Language</th>
+    <th>Python</th>
+    <th>R</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+    <td>Integer data</td>
+    <td>int()</td>
+    <td>as.integer(), integer()</td>
+</tr>
+
+<tr>
+    <td>Float data</td>
+    <td>float()</td>
+    <td>numeric()</td>
+</tr>
+
+<tr>
+    <td>Logical data</td>
+    <td>bool(), [True, False]</td>
+    <td>as.logical(), logical(), (TRUE, FALSE)</td>
+</tr>
+
+<tr>
+    <td>Character data</td>
+    <td>str()</td>
+    <td>as.character(), character()</td>
+</tr>
+</tbody>
+</table>
+
+
 
 <table class="custom-table">
 <thead>
