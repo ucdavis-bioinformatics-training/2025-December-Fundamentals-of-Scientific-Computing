@@ -91,13 +91,19 @@ but if you are serious about mastering python you will need to apply yourself be
 
 ## Hello World!
 
+**Input:**
 
 ```python
 print("Hello World!")
 ```
 
-    Hello World!
+**Output:**
 
+```
+Hello World!
+```
+
+---
 
 ## Basic Data Types
 ### Built in data types
@@ -244,63 +250,77 @@ table.width-50 tr:hover {
 
 #### Integer
 
+**Input:**
 
 ```python
 a = int(5)
 ```
 
+---
+
+**Input:**
 
 ```python
 a
 ```
 
+**Output:**
 
+```
+5
+```
 
+---
 
-    5
-
-
-
+**Input:**
 
 ```python
 b = 5
 ```
 
+---
+
+**Input:**
 
 ```python
 b
 ```
 
+**Output:**
 
+```
+5
+```
 
+---
 
-    5
-
-
-
+**Input:**
 
 ```python
 type(a)
 ```
 
+**Output:**
 
+```
+int
+```
 
+---
 
-    int
-
-
-
+**Input:**
 
 ```python
 type(b)
 ```
 
+**Output:**
 
+```
+int
+```
 
-
-    int
-
-
+---
 
 #### Arithmetic operators
 <img src="figures/operators.png" alt="if flow" width="600px"/>
@@ -383,94 +403,117 @@ table.width-70 tr:hover {
 
 __*Immutable* means that an object's state or value cannot be changed after its creation.__
 
+**Input:**
 
 ```python
 range1 = range(6)
 ```
 
+---
+
+**Input:**
 
 ```python
 range1[0]
 ```
 
+**Output:**
 
+```
+0
+```
 
+---
 
-    0
-
-
-
+**Input:**
 
 ```python
 range1[0] = 3
 ```
 
+**Output:**
 
-    ---------------------------------------------------------------------------
+**Error:**
 
-    TypeError                                 Traceback (most recent call last)
+```
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[16], line 1
+----> 1 range1[0] = 3
 
-    Cell In[16], line 1
-    ----> 1 range1[0] = 3
+TypeError: 'range' object does not support item assignment
+```
 
+---
 
-    TypeError: 'range' object does not support item assignment
-
-
+**Input:**
 
 ```python
 range1
 ```
 
+**Output:**
 
+```
+range(0, 6)
+```
 
+---
 
-    range(0, 6)
-
-
-
+**Input:**
 
 ```python
 len(range1)
 ```
 
+**Output:**
 
+```
+6
+```
 
+---
 
-    6
-
-
-
+**Input:**
 
 ```python
 range1[5]
 ```
 
+**Output:**
 
+```
+5
+```
 
+---
 
-    5
-
-
-
+**Input:**
 
 ```python
 range1[6] = 8
 ```
 
+**Output:**
 
-    ---------------------------------------------------------------------------
+**Error:**
 
-    TypeError                                 Traceback (most recent call last)
+```
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[20], line 1
+----> 1 range1[6] = 8
 
-    Cell In[20], line 1
-    ----> 1 range1[6] = 8
+TypeError: 'range' object does not support item assignment
+```
 
+---
 
-    TypeError: 'range' object does not support item assignment
-
-
+**Input:**
 
 ```python
 
 ```
+
+---
+
