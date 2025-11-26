@@ -328,7 +328,7 @@ int
 #### Exercise
 Creat different data types and perform some operations.
 
-### Sequence data
+## Sequence data
 
 <style>
 /* Custom table style */
@@ -403,7 +403,7 @@ table.width-70 tr:hover {
 
 __*Immutable* means that an object's state or value cannot be changed after its creation.__ Let's take a look at one example to understand what __immutable__ means in python. Here we will create a variable using **range()** function.
 
-#### Range
+### Range
 
 **[Input:]**
 
@@ -493,13 +493,52 @@ TypeError: 'range' object does not support item assignment
 
 ---
 
-#### List
+Range function is usually used in a for loop. For example,
+
+**[Input:]**
+
+```python
+protein_seq = "MTKAAVGLVKNRAWGIPSDF"
+protein_len = len(protein_seq)
+for i in range(protein_len):
+    print(f"The ", i+1, "th amino acid is: ", protein_seq[i])
+
+```
+
+**[Output:]**
+
+```
+The  1 th amino acid is:  M
+The  2 th amino acid is:  T
+The  3 th amino acid is:  K
+The  4 th amino acid is:  A
+The  5 th amino acid is:  A
+The  6 th amino acid is:  V
+The  7 th amino acid is:  G
+The  8 th amino acid is:  L
+The  9 th amino acid is:  V
+The  10 th amino acid is:  K
+The  11 th amino acid is:  N
+The  12 th amino acid is:  R
+The  13 th amino acid is:  A
+The  14 th amino acid is:  W
+The  15 th amino acid is:  G
+The  16 th amino acid is:  I
+The  17 th amino acid is:  P
+The  18 th amino acid is:  S
+The  19 th amino acid is:  D
+The  20 th amino acid is:  F
+```
+
+---
+
+### List
 A list can be created by using the function **list()** or by simply using **()**.
 
 **[Input:]**
 
 ```python
-list_example = list([1, 2, 3])
+list_example = list((1, 2, 3))
 ```
 
 ---
@@ -590,4 +629,23 @@ List is mutable, which means that one may modify the values of a list after its 
 </table>
 
 
+
+### Exercise
+Let's modify __list_example__ by using the functions listed above, add element(s), delete element(s).
+
+**[Input:]**
+
+```python
+
+```
+
+---
+
+**[Input:]**
+
+```python
+
+```
+
+---
 
