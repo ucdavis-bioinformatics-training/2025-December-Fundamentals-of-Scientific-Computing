@@ -401,12 +401,14 @@ table.width-70 tr:hover {
 </table>
 
 
-__*Immutable* means that an object's state or value cannot be changed after its creation.__
+__*Immutable* means that an object's state or value cannot be changed after its creation.__ Let's take a look at one example to understand what __immutable__ means in python. Here we will create a variable using **range()** function.
+
+#### Range
 
 **[Input:]**
 
 ```python
-range1 = range(6)
+range_example = range(6)
 ```
 
 ---
@@ -414,7 +416,7 @@ range1 = range(6)
 **[Input:]**
 
 ```python
-range1[0]
+range_example[0]
 ```
 
 **[Output:]**
@@ -428,7 +430,7 @@ range1[0]
 **[Input:]**
 
 ```python
-range1[0] = 3
+range_example[0] = 3
 ```
 
 **[Output:]**
@@ -438,8 +440,8 @@ range1[0] = 3
 ```
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-Cell In[16], line 1
-----> 1 range1[0] = 3
+Cell In[27], line 1
+----> 1 range_example[0] = 3
 
 TypeError: 'range' object does not support item assignment
 ```
@@ -449,13 +451,7 @@ TypeError: 'range' object does not support item assignment
 **[Input:]**
 
 ```python
-range1
-```
-
-**[Output:]**
-
-```
-range(0, 6)
+range_example
 ```
 
 ---
@@ -463,13 +459,7 @@ range(0, 6)
 **[Input:]**
 
 ```python
-len(range1)
-```
-
-**[Output:]**
-
-```
-6
+len(range_example)
 ```
 
 ---
@@ -477,13 +467,7 @@ len(range1)
 **[Input:]**
 
 ```python
-range1[5]
-```
-
-**[Output:]**
-
-```
-5
+range_example[5]
 ```
 
 ---
@@ -491,7 +475,7 @@ range1[5]
 **[Input:]**
 
 ```python
-range1[6] = 8
+range_example[6] = 8
 ```
 
 **[Output:]**
@@ -501,10 +485,21 @@ range1[6] = 8
 ```
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-Cell In[20], line 1
-----> 1 range1[6] = 8
+Cell In[28], line 1
+----> 1 range_example[6] = 8
 
 TypeError: 'range' object does not support item assignment
+```
+
+---
+
+#### List
+A list can be created by using the function **list()** or by simply using **()**.
+
+**[Input:]**
+
+```python
+list_example = list([1, 2, 3])
 ```
 
 ---
@@ -512,8 +507,87 @@ TypeError: 'range' object does not support item assignment
 **[Input:]**
 
 ```python
+list_example
+```
 
+**[Output:]**
+
+```
+[1, 2, 3]
 ```
 
 ---
+
+**[Input:]**
+
+```python
+len(list_example)
+```
+
+**[Output:]**
+
+```
+3
+```
+
+---
+
+**[Input:]**
+
+```python
+type(list_example)
+```
+
+**[Output:]**
+
+```
+list
+```
+
+---
+
+List is mutable, which means that one may modify the values of a list after its creation.
+
+<table class="width-70">
+<thead>
+<tr>
+    <th>Function</th>
+    <th>Operation</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+    <td>append</td>
+    <td>Add an element at the end of the list</td>
+</tr>
+
+<tr>
+    <td>extend</td>
+    <td>Add multiple elements at the end of the list</td>
+</tr>
+
+<tr>
+    <td>insert</td>
+    <td>Add an element at a specific position</td>
+</tr>
+
+<tr>
+    <td>remove</td>
+    <td>Remove the first occurrence of an element</td>
+</tr>
+
+<tr>
+    <td>pop</td>
+    <td>Removes an element at a specific position or the last element if no index is specified</td>
+</tr>
+
+<tr>
+    <td>del</td>
+    <td>Delete object</td>
+</tr>
+</tbody>
+</table>
+
+
 
