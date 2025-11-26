@@ -91,13 +91,13 @@ but if you are serious about mastering python you will need to apply yourself be
 
 ## Hello World!
 
-**Input:**
+**[Input:]**
 
 ```python
 print("Hello World!")
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 Hello World!
@@ -250,7 +250,7 @@ table.width-50 tr:hover {
 
 #### Integer
 
-**Input:**
+**[Input:]**
 
 ```python
 a = int(5)
@@ -258,13 +258,13 @@ a = int(5)
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 a
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 5
@@ -272,7 +272,7 @@ a
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 b = 5
@@ -280,13 +280,13 @@ b = 5
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 b
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 5
@@ -294,13 +294,13 @@ b
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 type(a)
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 int
@@ -308,13 +308,13 @@ int
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 type(b)
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 int
@@ -403,7 +403,7 @@ table.width-70 tr:hover {
 
 __*Immutable* means that an object's state or value cannot be changed after its creation.__
 
-**Input:**
+**[Input:]**
 
 ```python
 range1 = range(6)
@@ -411,13 +411,13 @@ range1 = range(6)
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 range1[0]
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 0
@@ -425,13 +425,13 @@ range1[0]
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 range1[0] = 3
 ```
 
-**Output:**
+**[Output:]**
 
 **Error:**
 
@@ -446,13 +446,13 @@ TypeError: 'range' object does not support item assignment
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 range1
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 range(0, 6)
@@ -460,13 +460,13 @@ range(0, 6)
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 len(range1)
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 6
@@ -474,13 +474,13 @@ len(range1)
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 range1[5]
 ```
 
-**Output:**
+**[Output:]**
 
 ```
 5
@@ -488,13 +488,13 @@ range1[5]
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 range1[6] = 8
 ```
 
-**Output:**
+**[Output:]**
 
 **Error:**
 
@@ -509,7 +509,7 @@ TypeError: 'range' object does not support item assignment
 
 ---
 
-**Input:**
+**[Input:]**
 
 ```python
 
