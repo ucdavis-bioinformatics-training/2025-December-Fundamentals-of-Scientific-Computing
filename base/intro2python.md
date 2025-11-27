@@ -85,7 +85,7 @@ Specifically in Python:
 
 -----
 
-## Disclaimer
+## <font color='darkred'>Disclaimer</font>
 **Learning all the nuances of python takes a long time! Our goal here is to introduce you to as many concepts as possible
 but if you are serious about mastering python you will need to apply yourself beyond this introduction.**
 
@@ -325,7 +325,7 @@ int
 #### Arithmetic operators
 <img src="figures/operators.png" alt="if flow" width="600px"/>
 
-#### Exercise
+#### <font color='blue'>Exercise</font>
 Creat different data types and perform some operations.
 
 ## Sequence data
@@ -538,7 +538,7 @@ A list can be created by using the function **list()** or by simply using **()**
 **[Input:]**
 
 ```python
-list_example = list((1, 2, 3))
+list_example = list(("NDUFAF7", "AGMAT", "TOP1MT", "IARS2", "MTFP1", "SLC25A51", "PRORP", "SLC25A52", "ENDOG"))
 ```
 
 ---
@@ -552,7 +552,15 @@ list_example
 **[Output:]**
 
 ```
-[1, 2, 3]
+['NDUFAF7',
+ 'AGMAT',
+ 'TOP1MT',
+ 'IARS2',
+ 'MTFP1',
+ 'SLC25A51',
+ 'PRORP',
+ 'SLC25A52',
+ 'ENDOG']
 ```
 
 ---
@@ -566,7 +574,7 @@ len(list_example)
 **[Output:]**
 
 ```
-3
+9
 ```
 
 ---
@@ -630,16 +638,122 @@ List is mutable, which means that one may modify the values of a list after its 
 
 
 
-### Exercise
-Let's modify __list_example__ by using the functions listed above, add element(s), delete element(s).
+For example, let's add an element to **list_example**
 
 **[Input:]**
 
 ```python
+list_example.append("CKMT2")
+list_example
+```
 
+**[Output:]**
+
+```
+['NDUFAF7',
+ 'AGMAT',
+ 'TOP1MT',
+ 'IARS2',
+ 'MTFP1',
+ 'SLC25A51',
+ 'PRORP',
+ 'SLC25A52',
+ 'ENDOG',
+ 'CKMT2']
 ```
 
 ---
+
+We see a new syntax, __variable.function()__. This is the way to call a method that is bound to an object in python. In order to know what methods are bound to an object, we can use the following operation:
+- methods = [method_name for method_name in dir(obj) if callable(getattr(obj, method_name)) and not method_name.startswith("__")]
+
+**[Input:]**
+
+```python
+methods = [method_name for method_name in dir(list_example) if callable(getattr(list_example, method_name)) and not method_name.startswith("__")]
+methods
+```
+
+**[Output:]**
+
+```
+['append',
+ 'clear',
+ 'copy',
+ 'count',
+ 'extend',
+ 'index',
+ 'insert',
+ 'pop',
+ 'remove',
+ 'reverse',
+ 'sort']
+```
+
+---
+
+### <font color="blue">Exercise</font>
+Let's modify __list_example__ by using the functions listed above, add element(s), delete element(s).
+
+## Mapping data - Dictionaries
+Dictionaries in python store data in __key:value__ pairs.
+- An ordered collection (starting in python 3.7)
+- Changable
+- Do not allow duplicate values
+
+**[Input:]**
+
+```python
+dict_example = {
+    "gene_name": "CKMT2",
+    "gene_biotype": "protein_coding",
+    "n_transcripts": 32,
+    "n_orthologues": 217,
+    "n_paralogues": 4,
+    "ensembl_id": "ENSG00000131730",
+    "discription": "creatine kinase, mitochondrial 2",
+    "loc": "Chromosome 5: 81,233,320-81,266,399",
+    "strand": "+"}
+dict_example
+```
+
+**[Output:]**
+
+```
+{'gene_name': 'CKMT2',
+ 'gene_biotype': 'protein_coding',
+ 'n_transcripts': 32,
+ 'n_orthologues': 217,
+ 'n_paralogues': 4,
+ 'ensembl_id': 'ENSG00000131730',
+ 'discription': 'creatine kinase, mitochondrial 2',
+ 'loc': 'Chromosome 5: 81,233,320-81,266,399',
+ 'strand': '+'}
+```
+
+---
+
+**[Input:]**
+
+```python
+dict_example["gene_name"]
+```
+
+**[Output:]**
+
+```
+'CKMT2'
+```
+
+---
+
+### List comprehension
+List comprehension is a very useful method available in python. It creates a new list by performing a pre-defined set of operations on each element of an existing list.
+- Short syntax for better readability
+- Faster operation than a for loop
+- Creates a new list
+
+__New_list = [expression for item in iterable if condition == True]__
 
 **[Input:]**
 
