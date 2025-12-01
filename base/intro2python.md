@@ -699,7 +699,17 @@ Let's modify __list_example__ by using the functions listed above, add element(s
 Dictionaries in python store data in __key:value__ pairs.
 - An ordered collection (starting in python 3.7)
 - Changable
-- Do not allow duplicate values
+- Do not allow duplicate keys
+- Allows for fast key lookup
+- Values can be any python data type
+
+Syntax:<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Key1: value1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Key2: value2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;KeyN: valueN,<br>
+}
 
 **[Input:]**
 
@@ -713,7 +723,7 @@ dict_example = {
     "ensembl_id": "ENSG00000131730",
     "discription": "creatine kinase, mitochondrial 2",
     "loc": "Chromosome 5: 81,233,320-81,266,399",
-    "strand": "+"}
+    "strand": "+",}
 dict_example
 ```
 
@@ -743,6 +753,112 @@ dict_example["gene_name"]
 
 ```
 'CKMT2'
+```
+
+---
+
+Because the values can be any python data type, one may create tested dictionaries.
+
+**[Input:]**
+
+```python
+nested_dict = {
+    "ENSG00000131730": {
+        "gene_name": "CKMT2",
+        "gene_biotype": "protein_coding",
+        "n_transcripts": 32,
+        "n_orthologues": 217,
+        "n_paralogues": 4,
+        "ensembl_id": "ENSG00000131730",
+        "discription": "creatine kinase, mitochondrial 2",
+        "loc": "Chromosome 5: 81,233,320-81,266,399",
+        "strand": "+",},
+    "ENSG00000003509": {
+        "gene_name": "NDUFAF7",
+        "gene_biotype": "protein_coding",
+        "n_transcripts": 20,
+        "n_orthologues": 210,
+        "n_paralogues": 0,
+        "ensembl_id": "ENSG00000003509",
+        "discription": "NADH:ubiquinone oxidoreductase complex assembly factor 7",
+        "loc": "Chromosome 2: 37,231,631-37,253,403 ",
+        "strand": "+",},
+}
+```
+
+---
+
+**[Input:]**
+
+```python
+nested_dict
+```
+
+**[Output:]**
+
+```
+{'ENSG00000131730': {'gene_name': 'CKMT2',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 32,
+  'n_orthologues': 217,
+  'n_paralogues': 4,
+  'ensembl_id': 'ENSG00000131730',
+  'discription': 'creatine kinase, mitochondrial 2',
+  'loc': 'Chromosome 5: 81,233,320-81,266,399',
+  'strand': '+'},
+ 'ENSG00000003509': {'gene_name': 'NDUFAF7',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 20,
+  'n_orthologues': 210,
+  'n_paralogues': 0,
+  'ensembl_id': 'ENSG00000003509',
+  'discription': 'NADH:ubiquinone oxidoreductase complex assembly factor 7',
+  'loc': 'Chromosome 2: 37,231,631-37,253,403 ',
+  'strand': '+'}}
+```
+
+---
+
+**[Input:]**
+
+```python
+nested_dict["ENSG00000131730"]["discription"]
+```
+
+**[Output:]**
+
+```
+'creatine kinase, mitochondrial 2'
+```
+
+---
+
+Keys() function can be used to list all the keys in a dictionary.
+
+**[Input:]**
+
+```python
+nested_dict.keys()
+```
+
+**[Output:]**
+
+```
+dict_keys(['ENSG00000131730', 'ENSG00000003509'])
+```
+
+---
+
+**[Input:]**
+
+```python
+nested_dict['ENSG00000131730'].keys()
+```
+
+**[Output:]**
+
+```
+dict_keys(['gene_name', 'gene_biotype', 'n_transcripts', 'n_orthologues', 'n_paralogues', 'ensembl_id', 'discription', 'loc', 'strand'])
 ```
 
 ---
