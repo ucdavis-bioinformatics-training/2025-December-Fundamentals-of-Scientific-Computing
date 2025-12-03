@@ -47,3 +47,5 @@ navigation:
     url: base/intro2python
 
   - heading: Installations
+  - title: Make and CMake
+    url: software_installation/make_cmake
