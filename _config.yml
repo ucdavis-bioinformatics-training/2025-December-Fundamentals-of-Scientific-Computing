@@ -16,6 +16,26 @@ navigation:
   - title: Closing thoughts
     url: base/closing
 
+  - heading: Command Line Interface
+  - title: CLI
+    url: CLI/intro_cli
+  - title: BashCrawl
+    url: https://gitlab.com/slackermedia/bashcrawl
+  - title: Challenge & Homework Solutions
+    url: CLI/solutions
+
+  - heading: R
+  - title: R
+    url: base/r_prerequisites
+
+  - heading: Python
+  - title: Python
+    url: base/intro2python
+
+  - heading: Installations
+  - title: Make and CMake
+    url: software_installation/make_cmake
+
   - heading: Support
   - title: Zoom
     url: base/zoom
@@ -33,23 +53,3 @@ navigation:
     url: https://github.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/issues
   - title: Biocore website
     url: http://bioinformatics.ucdavis.edu
-
-  - heading: Command Line Interface
-  - title: CLI
-    url: cli/intro_cli
-  - title: BashCrawl
-    url: https://gitlab.com/slackermedia/bashcrawl
-  - title: Challenge & Homework Solutions
-    url: CLI/solutions
-
-  - heading: R
-  - title: R
-    url: base/r_prerequisites
-
-  - heading: Python
-  - title: Python
-    url: base/intro2python
-
-  - heading: Installations
-  - title: Make and CMake
-    url: software_installation/make_cmake
