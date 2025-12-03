@@ -75,53 +75,41 @@ function showResults(myq, qc, rc){
 
 ## Outline:
 1. What is the command line?
-2. Directory Structure 
-3. Syntax of a Command
-4. Options of a Command
-5. Command Line Basics (ls, pwd, Ctrl-C, man, alias, ls -lthra)
-6. Getting Around (cd)
-7. Absolute and Relative Paths
-8. Tab Completion
-9. History Repeats Itself (history, head, tail, <up arrow>)
-10. Editing Yourself (Ctrl-A, Ctrl-E, Ctrl-K, Ctrl-W)
-11. Create and Destroy (echo, cat, rm, rmdir)
-12. Transferring Files (scp)
-13. Piping and Redirection (\|, >, >>, cut, sort, grep)
-14. Compressions and Archives (tar, gzip, gunzip)
-15. Forced Removal (rm -r)
-16. BASH Wildcard Characters (?, *, find, environment variables($), quotes/ticks)
-17. Manipulation of a FASTA file (cp, mv, wc -l/-c)
-18. Symbolic Links (ln -s)
-19. STDOUT and STDERR (>1, >2)
-20. Paste Command (paste, for loops)
-21. Shell Scripts and File Permissions (chmod, nano, ./)
+2. Syntax of a command
+3. Directory structure and filesystem navigation
+4. Repeating (and editing) previous commands
+5. Combining commands
+6. Creating, moving, and removing files
+7. Environment variables and bash wildcard characters
+8. Shell scripts and file permissions
 
-### A CLI cheat sheet
+## What is the command line?
 
-<object data="https://files.fosswire.com/2007/08/fwunixref.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+The command-line interface, or CLI, is:
 
+* a text-based tool (most of the time your mouse doesn't work)
+* a powerful, modular system of commands
+* the foundation of many high-throughput bioinformatic analyses
 
-# Session 1
+The user interface that accepts typed commands and displays responses is called a *shell*. The shell may run any of a number of command languages. While these may differ slightly in syntax, they share the same basic principles. Common command languages include bash, zsh, dash, and pwsh.
 
-## What is the Command-Line Interface
+To interact with the shell, users launch an application referred to as a *terminal*, typically Terminal (Mac) or Windows Shell (Windows).
 
-* The CLI is a tool into which one can type commands to perform tasks.
-* The user interface that accepts the typed responses and displays the data on the screen is called a shell: bash, tcsh…
-* An all-text display (most of the time your mouse doesn't work)
+<img src="figures/cli_figure1.png" alt="A newly-launched terminal application, with a system message displaying the time of the most recent login, followed by a bash prompt." width="800px"/>
 
-<img src="figures/cli_figure1.png" alt="cli_figure1" width="800px"/>
-
-After opening or logging into a terminal, system messages are often displayed, followed by the "prompt".
+After opening or logging into a terminal, system messages are often displayed, followed by the *prompt*.
 A prompt is a short text message at the start of the command line and ends with '$' in bash shell, commands are typed after the prompt. The prompt typically follows the form **username@server:current_directory$**.
 
 <img src="figures/cli_figure4.png" alt="cli_figure4" width="800px"/>
 
 
-## Command Line Basics
+## Syntax of a command
+
+
+* A command plus the required parameters/arguments
+* The separator used in issuing a command is space, number of spaces does not matter
+
+<img src="figures/cli_figure3.png" alt="cli_figure3" width="800px"/>
 
 First some basics - how to look at your surroundings.
 
@@ -144,8 +132,9 @@ Because one of the first things that's good to know is *how to escape once you'v
 
 Use Ctrl-c (shows as '^C' in the terminal) to exit (kill) a command. In some cases, a different key sequence is required (Ctrl-d). Note that anything including and after a "#" symbol is ignored, i.e. a comment. **So in all the commands below, you do not have to type anything including and past a "#".**
 
+### Arguments
 
-#### Options
+### Options
 
 Each command can act as a basic tool, or you can add 'options' or 'flags' that modify the default behavior of the tool. These flags come in the form of '-v' ... or, when it's a more descriptive word, two dashes: '\-\-verbose' ... that's a common (but not universal) one that tells a tool that you want it to give you output with more detail. Sometimes, options require specifying amounts or strings, like '-o results.txt' or '\-\-output results.txt' ... or '-n 4' or '\-\-numCPUs 4'. Let's try some, and see what the man page for the 'list files' command 'ls' is like.
 
@@ -176,11 +165,11 @@ Navigate this page using the up and down arrow keys, PageUp and PageDown, and th
     ls -ltrha /usr/bin # shows all files, long format, in last modified time reverse order, with human readable sizes
 
 <img src="figures/ls5.png" alt="ls5" width="800px"/>
-    
-And finally adding color (white for regular files, blue for directories, turquoise for links): 
+
+And finally adding color (white for regular files, blue for directories, turquoise for links):
 
     ls -ltrha --color /usr/bin # single letter (smushed) vs word options (Linux)
-    
+
 **OR**
 
     ls -ltrhaG /usr/bin # (MacOS)
@@ -194,7 +183,7 @@ Quick aside: what if I want to use same options repeatedly? and be lazy? You can
     ll
 
 
-## Directory Structure
+## Directory structure and filesystem navigation
 
 Absolute path: always starts with ”/” - the root folder
 
@@ -214,13 +203,6 @@ For example, for a user that has a username of “msettles”: their home direct
 It is the directory that a user starts in after starting a new shell or logging into a remote server.
 
 The tilde (~) is a short form of a user’s home directory.
-
-## Syntax of a command
-
-* A command plus the required parameters/arguments
-* The separator used in issuing a command is space, number of spaces does not matter
-
-<img src="figures/cli_figure3.png" alt="cli_figure3" width="800px"/>
 
 ## Quiz 1
 
@@ -376,8 +358,6 @@ HOMEWORK
 ---------
 
 Practice moving around directories from the root directory. Practice listing directories and moving around to different directories using both absolute and relative paths. Make sure to practice and use tab-completion a lot! Find your root directory in a File Explorer and practice navigating there and then doing the same navigation on the command-line.
-
-# Session 2
 
 ## History Repeats Itself
 
@@ -539,7 +519,7 @@ This is a great way to build up a set of operations while inspecting the output 
 
 ## Compression and Archives
 
-As file sizes get large, you'll often see compressed files, or whole compressed folders. Note that **any good bioinformatics software** should be able to work with compressed file formats. 
+As file sizes get large, you'll often see compressed files, or whole compressed folders. Note that **any good bioinformatics software** should be able to work with compressed file formats.
 
     gzip test.txt
     cat test.txt.gz
@@ -593,7 +573,7 @@ The quote characters " and ' are different. In general, single quotes preserve t
 However, some commands try to be 'smarter' about this behavior, so it's a little hard to predict what will happen in all cases. It's safest to experiment first when planning a command that depends on quoting ... list filenames first, instead of changing them, etc. Finally, the 'backtick' characters \` (same key - unSHIFTED - as the tilde ~) causes the shell to interpret what's between them as a command, and return the result.
 
      # counts the number of lines in file and stores result in the LINES variable
-    LINES=`cat PhiX/Illumina/RTA/Sequence/Bowtie2Index/genome.1.bt2 | wc -l` 
+    LINES=`cat PhiX/Illumina/RTA/Sequence/Bowtie2Index/genome.1.bt2 | wc -l`
     echo $LINES
 
 
@@ -1082,6 +1062,13 @@ buildQuiz(myQuestions5, quizContainer5);
 submitButton5.addEventListener('click', function() {showResults(myQuestions5, quizContainer5, resultsContainer5);});
 </script>
 
+### A CLI cheat sheet
+
+<object data="https://files.fosswire.com/2007/08/fwunixref.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
 
 HOMEWORK
 ---------

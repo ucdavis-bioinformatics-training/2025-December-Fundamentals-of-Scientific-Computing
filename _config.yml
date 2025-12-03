@@ -36,11 +36,11 @@ navigation:
 
   - heading: Command Line Interface
   - title: CLI
-    url: base/cli_prerequisites
+    url: cli/intro_cli
   - title: BashCrawl
     url: https://gitlab.com/slackermedia/bashcrawl
   - title: Challenge & Homework Solutions
-    url: base/solutions
+    url: CLI/solutions
 
   - heading: R
   - title: R
