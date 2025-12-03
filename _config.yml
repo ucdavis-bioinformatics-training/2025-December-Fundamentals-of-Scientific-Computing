@@ -34,9 +34,13 @@ navigation:
   - title: Biocore website
     url: http://bioinformatics.ucdavis.edu
 
-  - heading: Command Line Interface 
+  - heading: Command Line Interface
   - title: CLI
     url: base/cli_prerequisites
+  - title: BashCrawl
+    url: https://gitlab.com/slackermedia/bashcrawl
+  - title: Challenge & Homework Solutions
+    url: base/solutions
 
   - heading: R
   - title: R
