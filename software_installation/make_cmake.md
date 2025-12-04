@@ -8,9 +8,9 @@ Installing Simple Bioinformatics Software
 	sudo apt update
 	sudo apt upgrade
 	sudo apt install aptitude
- 	sudo aptitude install make
+	sudo aptitude install make
 	sudo aptitude install gcc
-	sudo aptitude install libncurses5-de
+	sudo aptitude install libncurses5-dev
 	sudo aptitude install zlib1g-dev
 	sudo aptitude install libbz2-dev
 	sudo aptitude install liblzma-dev
@@ -208,7 +208,7 @@ Find the packages you need and install them:
 
 For Ubuntu:
 
-	aptitude install libboost-all-dev
+	sudo aptitude install libboost-all-dev
 
 For Macs:
 
