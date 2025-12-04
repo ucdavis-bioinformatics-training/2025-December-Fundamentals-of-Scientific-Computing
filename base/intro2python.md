@@ -693,7 +693,7 @@ methods
 ---
 
 ### <font color="blue">Exercise</font>
-Let's modify __list_example__ by using the functions listed above, add element(s), delete element(s).
+Let's modify __list_example__ by using the functions listed above, add element(s), delete element(s), ...
 
 ## Mapping data - Dictionaries
 Dictionaries in python store data in __key:value__ pairs.
@@ -743,6 +743,9 @@ dict_example
 
 ---
 
+### Access items in the dictionary
+- The most intuitive way is to use the keys.
+
 **[Input:]**
 
 ```python
@@ -757,7 +760,94 @@ dict_example["gene_name"]
 
 ---
 
-Because the values can be any python data type, one may create tested dictionaries.
+But how do one know what keys there are in a dictionary object?
+
+**[Input:]**
+
+```python
+methods = [method_name for method_name in dir(dict_example) if callable(getattr(dict_example, method_name))
+           and not method_name.startswith("__")]
+methods
+```
+
+**[Output:]**
+
+```
+['clear',
+ 'copy',
+ 'fromkeys',
+ 'get',
+ 'items',
+ 'keys',
+ 'pop',
+ 'popitem',
+ 'setdefault',
+ 'update',
+ 'values']
+```
+
+---
+
+**[Input:]**
+
+```python
+dict_example.keys()
+```
+
+**[Output:]**
+
+```
+dict_keys(['gene_name', 'gene_biotype', 'n_transcripts', 'n_orthologues', 'n_paralogues', 'ensembl_id', 'discription', 'loc', 'strand'])
+```
+
+---
+
+How does one extract the values of more than one key. For example, let's try to extract values of the first 5 keys, _gene_name_, _gene_biotype_, and _n_transcripts_. This can be done easily using a for loop.
+
+**[Input:]**
+
+```python
+for key in ["gene_name", "gene_biotype", "n_transcripts"]:
+    print(f"{key}: ", dict_example.get(key))
+```
+
+**[Output:]**
+
+```
+gene_name:  test
+gene_biotype:  protein_coding
+n_transcripts:  32
+```
+
+---
+
+In another example, we are going to update the dictionary with an additional piece of information, using the method _update_.
+
+**[Input:]**
+
+```python
+dict_example.update({"pathway": "Mitochondria disease pathway"})
+dict_example
+```
+
+**[Output:]**
+
+```
+{'gene_name': 'test',
+ 'gene_biotype': 'protein_coding',
+ 'n_transcripts': 32,
+ 'n_orthologues': 217,
+ 'n_paralogues': 4,
+ 'ensembl_id': 'ENSG00000131730',
+ 'discription': 'creatine kinase, mitochondrial 2',
+ 'loc': 'Chromosome 5: 81,233,320-81,266,399',
+ 'strand': '+',
+ 'pathway': 'Mitochondria disease pathway'}
+```
+
+---
+
+Because the values can be any python data type, one may create nested dictionaries.
 
 **[Input:]**
 
@@ -862,6 +952,66 @@ dict_keys(['gene_name', 'gene_biotype', 'n_transcripts', 'n_orthologues', 'n_par
 ```
 
 ---
+
+Dictionaries can be created using dict() function. 
+
+**[Input:]**
+
+```python
+gene_names = ["CKMT2", "NDUFAF7", "AGMAT"]
+gene_biotypes = ["protein_coding"] * 3
+n_transcripts = [32, 20, 4]
+n_orthologues = [217, 210, 195]
+n_paralogues = [4, 0, 2]
+ensembl_IDs = ["ENSG00000131730", "ENSG00000003509", "ENSG00000116771"]
+descriptions = ["creatine kinase, mitochondrial 2", "NADH:ubiquinone oxidoreductase complex assembly factor 7",
+                "agmatinase (putative)"]
+locus = ["Chromosome 5: 81,233,320-81,266,399", "Chromosome 2: 37,231,631-37,253,403", "Chromosome 1: 15,571,699-15,585,078"]
+strands = ["+", "+", "-"]
+list_values = zip(gene_names, gene_biotypes, n_transcripts, n_orthologues,
+                  n_paralogues, ensembl_IDs, descriptions, locus, strands)
+list_keys = ["gene_name", "gene_biotype", "n_transcripts", "n_orthologues",
+             "n_paralogues", "ensembl_ID", "Description", "loc", "strand"]
+list_dict = [dict(zip(list_keys, value)) for value in list_values]
+list_dict
+```
+
+**[Output:]**
+
+```
+[{'gene_name': 'CKMT2',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 32,
+  'n_orthologues': 217,
+  'n_paralogues': 4,
+  'ensembl_ID': 'ENSG00000131730',
+  'Description': 'creatine kinase, mitochondrial 2',
+  'loc': 'Chromosome 5: 81,233,320-81,266,399',
+  'strand': '+'},
+ {'gene_name': 'NDUFAF7',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 20,
+  'n_orthologues': 210,
+  'n_paralogues': 0,
+  'ensembl_ID': 'ENSG00000003509',
+  'Description': 'NADH:ubiquinone oxidoreductase complex assembly factor 7',
+  'loc': 'Chromosome 2: 37,231,631-37,253,403',
+  'strand': '+'},
+ {'gene_name': 'AGMAT',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 4,
+  'n_orthologues': 195,
+  'n_paralogues': 2,
+  'ensembl_ID': 'ENSG00000116771',
+  'Description': 'agmatinase (putative)',
+  'loc': 'Chromosome 1: 15,571,699-15,585,078',
+  'strand': '-'}]
+```
+
+---
+
+### <font color="blue">Exercise</font>
+Please apply the methods available for a dictionary object to get familiar with this data type.
 
 ### List comprehension
 List comprehension is a very useful method available in python. It creates a new list by performing a pre-defined set of operations on each element of an existing list.
