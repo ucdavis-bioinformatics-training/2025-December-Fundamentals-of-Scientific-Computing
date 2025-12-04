@@ -7,8 +7,8 @@ Installing Simple Bioinformatics Software
 
 	sudo apt update
 	sudo apt upgrade
-    sudo apt install aptitude
-    sudo aptitude install make
+	sudo apt install aptitude
+ 	sudo aptitude install make
 	sudo aptitude install gcc
 	sudo aptitude install libncurses5-de
 	sudo aptitude install zlib1g-dev
@@ -99,24 +99,24 @@ We should also add "." to our PATH so that we can run things that are in our cur
 
 ---
 
-**9\.** Now, let's try installing something a little trickier.... an alignment format manipulation software called "samtools". First, go to the [samtools website](http://www.htslib.org). Click on the blue "Source Release Details" download button. Right click (or your equivalent) on the "samtools-1.14" link and copy the link location. Use the "wget" command to retrieve the file. So it will look like this (go back to your software directory first):
+**9\.** Now, let's try installing something a little trickier.... an alignment format manipulation software called "samtools". First, go to the [samtools website](http://www.htslib.org). Click on the blue "Source Release Details" download button. Right click (or your equivalent) on the "samtools-1.22.1" link and copy the link location. Use the "wget" command to retrieve the file. So it will look like this (go back to your software directory first):
 
 	cd ~/software
-	wget https://github.com/samtools/samtools/releases/download/1.14/samtools-1.14.tar.bz2
+	wget https://github.com/samtools/samtools/releases/download/1.22.1/samtools-1.22.1.tar.bz2
 
 ---
 
-**10\.** Now you should have the "samtools-1.9.tar.bz2" file in your home directory. Next use the "tar" command to extract the archive from the file:
+**10\.** Now you should have the "samtools-1.22.1.tar.bz2" file in your home directory. Next use the "tar" command to extract the archive from the file:
 
-	tar -x -v -j -f samtools-1.14.tar.bz2
+	tar -x -v -j -f samtools-1.22.1.tar.bz2
 
-The "-x" is the extract flag, "-v" is verbose informational output, "-j" specifies the format of the compression (in this case bzip2), and "-f" specifies the file. Now you should have a directory called "samtools-1.14".
+The "-x" is the extract flag, "-v" is verbose informational output, "-j" specifies the format of the compression (in this case bzip2), and "-f" specifies the file. Now you should have a directory called "samtools-1.22.1".
 
 ---
 
 **11\.** Go into that directory and look at the files:
 
-	cd samtools-1.14
+	cd samtools-1.22.1
 	ls
 
 Take a look at the README file:
@@ -131,7 +131,7 @@ This creates a new, empty "samtools_install" directory in our previously created
 
 ---
 
-**12\.** Now, you will notice that the "samtools-1.14" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory (use your home directory) where we want the final product to go (using the \-\-prefix flag). Mac users will have a path like "/Users/joshi/software/samtools_install".:
+**12\.** Now, you will notice that the "samtools-1.22.1" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory (use your home directory) where we want the final product to go (using the \-\-prefix flag). Mac users will have a path like "/Users/joshi/software/samtools_install".:
 
 	./configure --prefix=/home/joshi/software/samtools_install
 
