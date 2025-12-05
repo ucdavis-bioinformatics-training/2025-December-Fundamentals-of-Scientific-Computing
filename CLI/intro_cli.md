@@ -74,14 +74,14 @@ function showResults(myq, qc, rc){
 # Introduction to Command Line Interface
 
 ## Outline:
-1. What is the command line?
-2. Syntax of a command
-3. Directory structure and filesystem navigation
-4. Repeating (and editing) previous commands
-5. Combining commands
-6. Creating, moving, and removing files
-7. Environment variables and bash wildcard characters
-8. Shell scripts and file permissions
+* What is the command line?
+* Syntax of a command
+* Directory structure and filesystem navigation
+* Repeating (and editing) previous commands
+* Combining commands
+* Creating, moving, and removing files
+* Environment variables and bash wildcard characters
+* Shell scripts and file permissions
 
 ## What is the command line?
 
@@ -97,112 +97,94 @@ To interact with the shell, users launch an application referred to as a *termin
 
 <img src="figures/cli_figure1.png" alt="A newly-launched terminal application, with a system message displaying the time of the most recent login, followed by a bash prompt." width="800px"/>
 
-After opening or logging into a terminal, system messages are often displayed, followed by the *prompt*.
-A prompt is a short text message at the start of the command line and ends with '$' in bash shell, commands are typed after the prompt. The prompt typically follows the form **username@server:current_directory$**.
+When a terminal application is launched, system messages are often displayed, followed by the *prompt*, short text at the start of the command line and ending with '$' (in bash shell). The presence of the prompt indicates that the shell is ready to receive typed commands.
 
-<img src="figures/cli_figure4.png" alt="cli_figure4" width="800px"/>
+The prompt typically follows the form **username:directory$** (when on a local computer) or **username@server:current_directory$** (when logged into a remote host).
 
+<img src="figures/cli_figure4.png" alt="A terminal application displaying system messages after login to a remote host. The prompt joshi@tadpole:~$ indicates that user joshi has logged into remote host tadpole and is currently in their home directory. Callout text highlights the prompt, labeling the username, host name, and current directory." width="800px"/>
 
 ## Syntax of a command
 
-
-* A command plus the required parameters/arguments
-* The separator used in issuing a command is space, number of spaces does not matter
+Programming languages, like spoken languages, have syntax. Instructions given in shell scripting languages are made up of a *command*, sometimes followed by one or more *options* or *arguments*. These elements are separated by spaces, and a return character creates the end of the "sentence."
 
 <img src="figures/cli_figure3.png" alt="cli_figure3" width="800px"/>
 
-First some basics - how to look at your surroundings.
-
-    pwd
-
-present working directory ... where am I?
-
-    ls
-
-list files here ... you should see nothing since your homes are empty
-
-    ls /tmp/
-
-list files somewhere else, like /tmp/
-
-
-Because one of the first things that's good to know is *how to escape once you've started something you don't want*.
-
-    sleep 1000  # wait for 1000 seconds!
-
-Use Ctrl-c (shows as '^C' in the terminal) to exit (kill) a command. In some cases, a different key sequence is required (Ctrl-d). Note that anything including and after a "#" symbol is ignored, i.e. a comment. **So in all the commands below, you do not have to type anything including and past a "#".**
-
-### Arguments
-
-### Options
-
-Each command can act as a basic tool, or you can add 'options' or 'flags' that modify the default behavior of the tool. These flags come in the form of '-v' ... or, when it's a more descriptive word, two dashes: '\-\-verbose' ... that's a common (but not universal) one that tells a tool that you want it to give you output with more detail. Sometimes, options require specifying amounts or strings, like '-o results.txt' or '\-\-output results.txt' ... or '-n 4' or '\-\-numCPUs 4'. Let's try some, and see what the man page for the 'list files' command 'ls' is like.
-
-    ls -R /
-
-Lists directories and files *recursively*. This will be a very long output, so use Ctrl-C to break out of it. Sometimes you have to press Ctrl-C many times to get the terminal to recognize it. In order to know which options do what, you can use the manual pages. To look up a command in the manual pages type "man" and then the command name. So to look up the options for "ls", type:
-
-    man ls
-
-Navigate this page using the up and down arrow keys, PageUp and PageDown, and then use q to quit out of the manual. In this manual page, find the following options, quit the page, and then try those commands. You could even open another terminal, log in again, and run manual commands in that terminal.
-
-    ls -l /usr/bin/ # long format, gives permission values, owner, group, size, modification time, and name
-
-<img src="figures/ls1.png" alt="ls1" width="800px"/>
-
-    ls -a /lib # shows ALL files, including hidden ones
-
-<img src="figures/ls2.png" alt="ls2" width="800px"/>
-
-    ls -l -a /usr/bin # does both of the above
-
-<img src="figures/ls3.png" alt="ls3" width="800px"/>
-
-    ls -la /usr/bin # option 'smushing' can be done with single letter options
-
-<img src="figures/ls4.png" alt="ls4" width="800px"/>
-
-    ls -ltrha /usr/bin # shows all files, long format, in last modified time reverse order, with human readable sizes
-
-<img src="figures/ls5.png" alt="ls5" width="800px"/>
-
-And finally adding color (white for regular files, blue for directories, turquoise for links):
-
-    ls -ltrha --color /usr/bin # single letter (smushed) vs word options (Linux)
-
-**OR**
-
-    ls -ltrhaG /usr/bin # (MacOS)
-
-<img src="figures/ls6.png" alt="ls6" width="800px"/>
-
-
-Quick aside: what if I want to use same options repeatedly? and be lazy? You can create a shortcut to another command using 'alias'.
-
-    alias ll='ls -lah'
-    ll
-
+The code above tells the computer what to action do (copy, using the `cp` command), how to do it (recursively, with the `-r` option), and with what to perform the action ("test", the directory specified by the argument).
 
 ## Directory structure and filesystem navigation
 
-Absolute path: always starts with ”/” - the root folder
+When working on the command line, it is essential to know "where" you are operating from at any given moment. The files on your computer- everything from sequence FASTQs to software- is organized into a hierarchy of directories (also called folders) that can be imagined as the root system of a tree. By default, commands operate on the *present working directory*.
 
-/share/workshop/msettles/cli
+### pwd
 
-the folder (or file) "cli" in the folder "msettles" in the folder "workshop" in the folder "share" from the root folder.
+    pwd
 
-Relative path: always relative to our current location.
+This command returns the present working directory (pwd), which you can think of as your current location within the filesystem's tree structure. It answers the question "where am I?" with the path to your current location represented as a series of directories descending from the *root* (top-most level of the filesystem), separated by "/" characters.
 
-_a single dot (.) refers to the current directory_  
-_two dots (..) refers to the directory one level up_  
+### ls
 
-<img src="figures/cli_figure2.png" alt="cli_figure2" width="500px"/>
+To find out what files and directories are contained within the pwd, we can list the contents of the directory.
 
-Usually, /home is where the user accounts reside, ie. users' 'home' directories.
-For example, for a user that has a username of “msettles”: their home directory is /home/msettles
-It is the directory that a user starts in after starting a new shell or logging into a remote server.
+    ls
 
-The tilde (~) is a short form of a user’s home directory.
+Like many other commands, the behavior of ls can be altered with options and arguments.
+
+    ls -R
+
+The '-R' option, for example, causes ls to list directories and files *recursively*. This may be a very long output depending on the contents of your pwd, so **use Ctrl-C to break out of it**. Sometimes you have to press Ctrl-C many times to get the terminal to recognize the interrupt signal.
+
+The manual page for each command lists available options and describes their functions. To look up a command in the manual pages type "man" and then the command name.
+
+   man ls
+
+Navigate this page using the up and down arrow keys, and then type 'q' to quit out of the manual and return to the shell.
+
+In this manual page, find the following options, quit the page, and then try those commands. You could even open another terminal, log in again, and run manual commands in that terminal.
+
+    ls -l
+    ls -a
+    ls -l -a
+    ls -la
+    ls -ltrha
+    ls -ltrha --color
+
+Adding an argument to the ls command enables listing the content of directories other than the pwd.
+
+    ls Desktop
+
+### cd
+
+The present working directory is not static; you can move through the file system by changing directory (cd), using the path to your destination as an argument to cd.
+
+    cd Desktop
+
+The location of any directory can be described in two ways:
+
+* the absolute path begins from the root
+* the relative path begins from the present working directory
+
+    cd /
+    cd home
+    pwd
+
+In a relative path, the ".." refers to the directory one level above the present location. To specify a directory two levels above the present working directory, use "../..", and so on.
+
+    cd ..
+    pwd
+
+The absolute path will always begin with a "/" character. When in doubt, use the absolute path.
+
+    cd /home/
+    pwd
+
+Another special character is '~', which represents the user's home directory. This is the directory that a user starts in after starting a new shell or logging into a remote server.
+
+    cd ~
+    pwd
+
+**Notice that the location changes in the prompt with each cd.**
+
+Sometimes you will see a path begin with a single "." character. One dot is the relative path to the pwd, such that `./file.txt` is the path to a text file within the current directory.
 
 ## Quiz 1
 
@@ -251,49 +233,6 @@ buildQuiz(myQuestions1, quizContainer1);
 submitButton1.addEventListener('click', function() {showResults(myQuestions1, quizContainer1, resultsContainer1);});
 </script>
 
-
-## Getting Around
-
-The filesystem you're working on is like the branching root system of a tree. The top level, right at the root of the tree, is called the 'root' directory, specified by '/' ... which is the divider for directory addresses, or 'paths'. We move around using the 'change directory' command, 'cd'. The command pwd return the present working directory.
-
-    cd  # no effect? that's because by itself it sends you home (to ~)
-    cd /  # go to root of tree's root system
-    cd home  # go to where everyone's homes are
-    pwd
-    cd username  # use your actual home, not "username"
-    pwd
-    cd /
-    pwd
-    cd ~  # a shortcut to home, from anywhere
-    pwd
-    cd .  # '.' always means *this* directory
-    pwd
-    cd ..  # '..' always means *one directory up*
-    pwd
-
-<img src="figures/cli_figure5.png" alt="cli_figure5" width="800px"/>
-
-**You should also notice the location changes in your prompt.**
-
-## Absolute and Relative Paths
-
-You can think of paths like addresses. You can tell your friend how to go to a particular store *from where they are currently* (a 'relative' path), or *from the main Interstate Highway that everyone uses* (in this case, the root of the filesystem, '/' ... this is an 'absolute' path). Both are valid. But absolute paths can't be confused, because they always start off from the same place, and are unique. Relative paths, on the other hand, could be totally wrong for your friend *if you assume they're somewhere they're not*. With this in mind, let's try a few more:
-
-    cd /usr/bin  # let's start in /usr/bin
-
-**relative** (start here, take one step up, then down through lib and gcc)
-
-    cd ../lib/X11 # windows and linux do this one
-    cd ../lib/system # macs do this one
-    pwd
-
-**absolute** (start at root, take steps)
-
-    cd /usr/lib/X11 # windows and linux
-    cd /usr/lib/system # macs
-    pwd
-
-Now, because it can be a real pain to type out, or remember these long paths, we need to discuss ...
 
 ## Tab Completion
 
@@ -360,6 +299,11 @@ HOMEWORK
 Practice moving around directories from the root directory. Practice listing directories and moving around to different directories using both absolute and relative paths. Make sure to practice and use tab-completion a lot! Find your root directory in a File Explorer and practice navigating there and then doing the same navigation on the command-line.
 
 ## History Repeats Itself
+
+Quick aside: what if I want to use same options repeatedly? and be lazy? You can create a shortcut to another command using 'alias'.
+
+    alias ll='ls -lah'
+    ll
 
 Linux remembers everything you've done (at least in the current shell session), which allows you to pull steps from your history, potentially modify them, and redo them. This can obviously save a lot of time and typing.
 
