@@ -74,6 +74,7 @@ function showResults(myq, qc, rc){
 # Introduction to Command Line Interface
 
 ## Outline:
+* Setting up
 * What is the command line?
 * Syntax of a command
 * Directory structure and filesystem navigation
@@ -82,6 +83,36 @@ function showResults(myq, qc, rc){
 * Creating, moving, and removing files
 * Environment variables and bash wildcard characters
 * Shell scripts and file permissions
+
+## Setting up
+
+For Windows and Mac users, a few steps are needed to properly set up the command line for this course.
+
+### Windows
+
+In order to get a command line terminal for Windows 10 or 11, you will need to enable the WSL (Windows Subsystem for Linux) and install Ubuntu. Follow [these instructions](https://linuxhint.com/install_ubuntu_windows_10_wsl/) for installation.
+
+Once you have installed the Ubuntu terminal, open one, and copy and paste the following commands:
+
+    sudo apt install unzip
+    sudo apt install make
+    sudu apt install cmake
+
+
+### Mac
+
+A Mac is already set up for the command line, but you will probably need to install [homebrew](https://brew.sh/) and use it to install some other packages. [Open up a terminal](https://www.wikihow.com/Open-a-Terminal-Window-in-Mac) and paste in the following:
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Press Enter. The installer will explain what it is doing and may need to install some other packages, such as Xcode. An admin password may be necessary. Once the installation is complete, use the `brew install` command to install different packages:
+
+    brew install wget
+    brew install gnu-sed
+    brew install coreutils
+    brew install make
+    brew install cmake
+
 
 ## What is the command line?
 
@@ -186,6 +217,29 @@ Another special character is '~', which represents the user's home directory. Th
 
 Sometimes you will see a path begin with a single "." character. One dot is the relative path to the pwd, such that `./file.txt` is the path to a text file within the current directory.
 
+### Tab completion
+
+As a text-only interface, the CLI requires commands, options, and arguments to be typed correctly. Tab completion offers a way to save time and avoid errors.
+
+A single \<tab\> auto-completes file or directory names when there's only one name that could be completed correctly. If multiple files could satisfy the tab-completion, then nothing will happen after the first \<tab\>. In this case, press \<tab\> a second time to list all the possible completing names. Note that if you've already made a mistake that means that no files will ever be completed correctly from its current state, then repeated \<tab\> presses will do nothing.
+
+touch updates the timestamp on a file, here we use it to create three empty files.
+
+    cd # go to your home directory
+    mkdir ~/tmp
+    cd ~/tmp
+    touch one seven september # creates three empty files
+    ls o
+
+\<tab\> with no enter should complete to 'one', then enter
+
+    ls s
+
+\<tab\> with no enter completes up to 'se' since that's in common between seven and september. \<tab\> again and no enter. This second \<tab\> should cause listing of seven and september. Type 'v' then \<tab\> and no enter now it's unique to seven, and should complete to seven. Enter runs 'ls seven' command.
+
+The utility of tab completion cannot be overstated. Watch experienced users type; they hit tab once or twice in between almost every character. Use tab completion early and often, and you will save yourself a huge amount of typing and time.
+
+
 ## Quiz 1
 
 <div id="quiz1" class="quiz"></div>
@@ -227,6 +281,26 @@ myQuestions1 = [
     },
     correctAnswer: "a"
   }
+  {
+    question: "What is the tilde short for?",
+  answers: {
+    a: "Your home directory",
+    b: "Your user name",
+    c: "Your current directory",
+    d: "The root directory"
+  },
+  correctAnswer: "a"
+},
+{
+  question: "From the /usr/bin directory, verify that the two following commands are equivalent:<br/><br/>cd ../../lib/init/<br/>cd ../../../../../../../lib/init<br/><br/>Why are these very different-looking commands equivalent?",
+  answers: {
+    a: "The cd command knows where your home directory resides",
+    b: "The terminal ignores excess dots",
+    c: "Because going one directory up from root just takes you back to root",
+    d: "Home is the root directory"
+  },
+  correctAnswer: "c"
+}
 ];
 
 buildQuiz(myQuestions1, quizContainer1);
@@ -234,95 +308,27 @@ submitButton1.addEventListener('click', function() {showResults(myQuestions1, qu
 </script>
 
 
-## Tab Completion
-
-Using tab-completion is a must on the command line. A single \<tab\> auto-completes file or directory names when there's only one name that could be completed correctly. If multiple files could satisfy the tab-completion, then nothing will happen after the first \<tab\>. In this case, press \<tab\> a second time to list all the possible completing names. Note that if you've already made a mistake that means that no files will ever be completed correctly from its current state, then \<tab\>'s will do nothing.
-
-touch updates the timestamp on a file, here we use it to create three empty files.
-
-    cd # go to your home directory
-    mkdir ~/tmp
-    cd ~/tmp
-    touch one seven september
-    ls o
-
-tab with no enter should complete to 'one', then enter
-
-    ls s
-
-tab with no enter completes up to 'se' since that's in common between seven and september. tab again and no enter, this second tab should cause listing of seven and september. type 'v' then tab and no enter now it's unique to seven, and should complete to seven. enter runs 'ls seven' command.
-
-It cannot be overstated how useful tab completion is. You should get used to using it constantly. Watch experienced users type and they maniacally hit tab once or twice in between almost every character. You don't have to go that far, of course, but get used to constantly getting feedback from hitting tab and you will save yourself a huge amount of typing and trying to remember weird directory and filenames.
-
-## Quiz 2
-
-<div id="quiz2" class="quiz"></div>
-<button id="submit2">Submit Quiz</button>
-<div id="results2" class="output"></div>
-<script>
-quizContainer2 = document.getElementById('quiz2');
-resultsContainer2 = document.getElementById('results2');
-submitButton2 = document.getElementById('submit2');
-
-myQuestions2 = [
-  {
-    question: "What is the tilde short for?",
-    answers: {
-      a: "Your home directory",
-      b: "Your user name",
-      c: "Your current directory",
-      d: "The root directory"
-    },
-    correctAnswer: "a"
-  },
-  {
-    question: "From the /usr/bin directory, verify that the two following commands are equivalent:<br/><br/>cd ../../lib/init/<br/>cd ../../../../../../../lib/init<br/><br/>Why are these very different-looking commands equivalent?",
-    answers: {
-      a: "The cd command knows where your home directory resides",
-      b: "The terminal ignores excess dots",
-      c: "Because going one directory up from root just takes you back to root",
-      d: "Home is the root directory"
-    },
-    correctAnswer: "c"
-  }
-];
-
-buildQuiz(myQuestions2, quizContainer2);
-submitButton2.addEventListener('click', function() {showResults(myQuestions2, quizContainer2, resultsContainer2);});
-</script>
-
-
-
-HOMEWORK
----------
+## Exercise 1
 
 Practice moving around directories from the root directory. Practice listing directories and moving around to different directories using both absolute and relative paths. Make sure to practice and use tab-completion a lot! Find your root directory in a File Explorer and practice navigating there and then doing the same navigation on the command-line.
 
-## History Repeats Itself
+## Repeating (and editing) previous commands
 
-Quick aside: what if I want to use same options repeatedly? and be lazy? You can create a shortcut to another command using 'alias'.
+### History
 
-    alias ll='ls -lah'
-    ll
+The shell remembers all commands run in the current session, which allows you to pull steps from your history, potentially modify them, and repeat them as needed.
 
-Linux remembers everything you've done (at least in the current shell session), which allows you to pull steps from your history, potentially modify them, and redo them. This can obviously save a lot of time and typing.
+Use the up arrow key to move back through the session history one line at a time. Press enter to rerun the command displayed.
 
-The 'head' command views the first 10 (by default) lines of a file. The 'tail' commands views the last 10 (by default) lines of a file. Type 'man head' or 'man tail' to consult their manuals.
+The entire history of the shell session can be printed to the screen as well:
 
-    <up arrow>  # last command
-    <up>  # next-to-last command
-    <down>  # last command, again
-    <down>  # current command, empty or otherwise
-    history  # usually too much for one screen, so ...
-    history | head # we discuss pipes (the vertical bar) below
-    history | tail
-    history | less # use 'q' to exit less
-    ls -l
-    pwd
-    history | tail
-    !560  # re-executes 560th command (yours will have different numbers; choose the one that recreates your really important result!)
+    history
 
-## Editing Yourself
+Note that the output from `history` is numbered. These line numbers allow the user to rerun a command without needing to move back through the session one line at a time.
+
+    !549 # re-executes the 549th command. Each session will have different numbers; choose one that re-runs a command of interest.
+
+### Editing a command
 
 Here are some more ways to make editing previous commands, or novel commands that you're building up, easier:
 
@@ -334,16 +340,24 @@ Here are some more ways to make editing previous commands, or novel commands tha
     <ctrl-right> # will move one word at a time to the right
     # now use left and right to move to a single word (surrounded by whitespace: spaces or tabs)
     <ctrl-k>  # delete from here to end of line
-    <ctrl-w>  # delete from here to beginning of preceeding word
+    <ctrl-w>  # delete from here to beginning of preceding word
     blah blah blah<ctrl-w><ctrl-w>  # leaves you with only one 'blah'
 
 You can also search your history from the command line:
 
-    <ctrl-r>fir  # should find most recent command containing 'fir' string: echo 'first' > test.txt
+    history
+    <ctrl-r>man  # should find most recent command containing 'man' string
     <enter>  # to run command
-    <ctrl-c>  # get out of recursive search
+    <ctrl-c>  # get out of recursive search without running anything
     <ctr-r>  # repeat <ctrl-r> to find successively older string matches
 
+
+### Aliasing
+
+Quick aside: what if I want to use same options repeatedly? and be lazy? You can create a shortcut to another command using 'alias'.
+
+        alias ll='ls -lah'
+        ll
 
 ## Create and Destroy
 
