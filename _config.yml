@@ -11,18 +11,19 @@ navigation:
     url: base/welcome
   - title: Schedule
     url: base/schedule
-  - title: What is Bioinformatics/Genomics?
-    url: https://raw.githubusercontent.com/ucdavis-bioinformatics-training/ucdavis-bioinformatics-training.presentations/master/genomics/Genomics_a_perspective_Dec_2021.pdf
-  - title: Closing thoughts
-    url: base/closing
+#  - title: What is Bioinformatics/Genomics?
+#    url: https://raw.githubusercontent.com/ucdavis-bioinformatics-training/ucdavis-bioinformatics-training.presentations/master/genomics/Genomics_a_perspective_Dec_2021.pdf
+#  - title: Closing thoughts
+#    url: base/closing
 
   - heading: Command Line Interface
   - title: CLI
     url: CLI/intro_cli
-  - title: BashCrawl
-    url: https://gitlab.com/slackermedia/bashcrawl
   - title: Challenge & Homework Solutions
     url: CLI/solutions
+  - title: BashCrawl
+    url: https://gitlab.com/slackermedia/bashcrawl
+
 
   - heading: R
   - title: R

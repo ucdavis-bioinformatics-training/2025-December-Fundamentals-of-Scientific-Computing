@@ -50,36 +50,11 @@ Workshop materials are all posted on github, and publicly available
 
 ## Workshop Goals
 
-* End-to-End understanding of RNAseq differential expression analysis
-  * Discussions/lectures
-  * Technologies
-  * Experimental design
-  * Cost estimation
-  * Data reduction workflow
-  * mRNA gene expression data analysis
-  * Visualization
-* To work through a complete experiment, starting from raw data to completion, including making figures.
-
-* Goal is 30-40% lecture/discussion 60-70% hands-on
-
-## Computing Cluster
-
-A portion of  this course will be conducted on our servers and compute cluster (tadpole.genomecenter.ucdavis.edu).
-
-To get an account.  
-[https://computing.genomecenter.ucdavis.edu](https://computing.genomecenter.ucdavis.edu)
-
-Request an account -> sponsor is "Bioinformatics Core Workshop"
-
-Instructions on how to get an account have been sent by email.
-
-**If you already have, or have had in the past, an account on our systems, then please tell us your username, or email, and we will add you to the workshop. Do not create a new account**
-
-Cluster usage will be under the slurm reservation  ‘rnaworkshop’
+Participants will come away from this workshop with foundational knowledge of the basics of scientific computing in bash, R, and python. Our goal is to provide 30-40% lecture/discussion 60-70% hands-on work. Additional exercises to be completed outside of class time are provided. We hope participants will engage with these resources to further their understanding of the course materials.
 
 ## Structure of the Workshops
 
-Given the current Covid19 pandemic, and stay in place orders around the world, we've decided to take our popular bioinformatic workshops virtual. Our intent is to offer as close to an experience we can to our in-person workshops. We will hold the same goals and strive for a similar lecture/hand-on ratio. We will be using multiple technologies in order to help facilitate a maximum amount of interaction.
+This workshop is offered in a remote format. We will be using multiple technologies in order to help facilitate a maximum amount of interaction.
 
 #### Zoom
 
@@ -103,4 +78,3 @@ Text based communication will be conducted via a Slack channel. Staff will be mo
 #### Patience
 
 We ask for a little more patience as we have a wide background in workshop participants, but we are committed to providing you the best educational experience we can (under the current conditions).
-

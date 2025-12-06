@@ -29,4 +29,4 @@ If you have any questions, please don’t hesitate to contact us at [training.bi
 
 ### Register
 
-Register for the [course](https://registration.genomecenter.ucdavis.edu/events/RNAseq_june_2025/).
+Register for the [course](https://registration.genomecenter.ucdavis.edu/).
