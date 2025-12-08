@@ -44,10 +44,6 @@ Workshop materials are all posted on github, and publicly available
 [https://ucdavis-bioinformatics-training.github.io/](https://ucdavis-bioinformatics-training.github.io/)
 
 
-* This mRNAseq Workshop
-
-[https://ucdavis-bioinformatics-training.github.io/2025-June-RNA-Seq-Analysis/](https://ucdavis-bioinformatics-training.github.io/2025-June-RNA-Seq-Analysis/)
-
 ## Workshop Goals
 
 Participants will come away from this workshop with foundational knowledge of the basics of scientific computing in bash, R, and python. Our goal is to provide 30-40% lecture/discussion 60-70% hands-on work. Additional exercises to be completed outside of class time are provided. We hope participants will engage with these resources to further their understanding of the course materials.
