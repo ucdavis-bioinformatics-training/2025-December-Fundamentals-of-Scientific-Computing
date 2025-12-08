@@ -253,7 +253,7 @@ It can also be used to rename a file if necessary.
 
 Copying follows the same logic.
 
-    cp new_name.bed region.bed
+    cp region.bed new_name.bed
     cp region.bed region2.bed
     ls
 
