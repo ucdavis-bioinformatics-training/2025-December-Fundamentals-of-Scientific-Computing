@@ -103,7 +103,7 @@ We are going to use a python distribution platform, Anaconda. Anaconda is an ope
 - Linux:
   - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
   - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
-- Windows: Please install in your ubuntu subsystem so that conda is available for installing other python packages
+- Windows: Please install in your ubuntu subsystem so that conda is available for installing other python packages later
   - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
   - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
 
@@ -346,7 +346,7 @@ int
 <img src="figures/operators.png" alt="if flow" width="600px"/>
 
 #### <font color='blue'>Exercise</font>
-Creat different data types and perform some operations.
+Creat different data types (integers, floats, booleans and strings) and perform some operations.
 
 ## Sequence data
 
@@ -436,6 +436,20 @@ range_example = range(6)
 **[Input:]**
 
 ```python
+range_example
+```
+
+**[Output:]**
+
+```
+range(0, 6)
+```
+
+---
+
+**[Input:]**
+
+```python
 range_example[0]
 ```
 
@@ -460,7 +474,7 @@ range_example[0] = 3
 ```
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-Cell In[27], line 1
+Cell In[22], line 1
 ----> 1 range_example[0] = 3
 
 TypeError: 'range' object does not support item assignment
@@ -471,23 +485,13 @@ TypeError: 'range' object does not support item assignment
 **[Input:]**
 
 ```python
-range_example
-```
-
----
-
-**[Input:]**
-
-```python
-len(range_example)
-```
-
----
-
-**[Input:]**
-
-```python
 range_example[5]
+```
+
+**[Output:]**
+
+```
+5
 ```
 
 ---
@@ -505,7 +509,7 @@ range_example[6] = 8
 ```
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-Cell In[28], line 1
+Cell In[24], line 1
 ----> 1 range_example[6] = 8
 
 TypeError: 'range' object does not support item assignment
@@ -834,7 +838,7 @@ for key in ["gene_name", "gene_biotype", "n_transcripts"]:
 **[Output:]**
 
 ```
-gene_name:  test
+gene_name:  CKMT2
 gene_biotype:  protein_coding
 n_transcripts:  32
 ```
@@ -855,7 +859,7 @@ dict_example
 **[Output:]**
 
 ```
-{'gene_name': 'test',
+{'gene_name': 'CKMT2',
  'gene_biotype': 'protein_coding',
  'n_transcripts': 32,
  'n_orthologues': 217,
@@ -865,7 +869,6 @@ dict_example
  'loc': 'Chromosome 5: 81,233,320-81,266,399',
  'strand': '+',
  'pathway': 'Mitochondria disease pathway',
- 'pathway2': 'Mitochondria disease pathway',
  'pathway_members': 10}
 ```
 
