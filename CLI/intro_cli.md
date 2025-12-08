@@ -97,7 +97,7 @@ Once you have installed the Ubuntu terminal, open one, and copy and paste the fo
 
     sudo apt install unzip
     sudo apt install make
-    sudu apt install cmake
+    sudo apt install cmake
 
 
 ### Mac
