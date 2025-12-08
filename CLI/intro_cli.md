@@ -816,6 +816,27 @@ This may not be a particularly useful thing to do with a genomic FASTA file, but
 
 We just did this for one file, but what if we wanted to do it for all of our files? We certainly don't want to type the command by hand dozens of times. We could edit and re-run commands from our history, but there's an even faster way.
 
+### For loop
+
+A for loop executes the code within it a set number of times.
+
+    for i in {1..21}; do echo $i >> a; done  # put multiple lines of code on one line, each line terminated by ';'
+    cat a
+    # <1 through 21 on separate lines>
+
+The general form is:
+
+<div class="output">for name in {list}; do
+    commands
+done
+</div>
+
+The list can be a sequence of numbers or letters, or a group of files specified with wildcard characters:
+
+    for i in {3,2,1,liftoff}; do echo $i; done  
+    for x in *.fq.gz; do echo $x; zcat $x | wc -l; done
+
+
 ### While loop
 
 You can pipe a command into a while loop and it will iterate through each line of the input. First, get a listing of all your files:
@@ -897,7 +918,6 @@ So let's run this script. We have to provide a relative reference to the script 
 
 And you should see all the commands in the file run in sequential order in the terminal.
 
-
 ### Command Line Arguments for Shell Scripts
 
 Now let's modify our script to use command line arguments, which are arguments that can come after the script name (when executing) to be part of the input inside the script. This allows us to use the same script with different inputs. In order to do so, we add variables $1, $2, $3, etc.... in the script where we want our input to be. So, for example, use nano to modify your test.sh script to look like this:
@@ -923,35 +943,6 @@ Note that each argument is separated by a space, so $1 becomes "genome.fa", $2 b
     ./test.sh .. 5 genome.fa
 
 Now, $1 becomes "..", $2 is "5", and $3 is "genome.fa".
-
-
-### For loop
-
-A for loop executes a given command a set number of times.
-
-    for i in {1..21}; do echo $i >> a; done  # put multiple lines of code on one line, each line terminated by ';'
-    cat a
-    # <1 through 21 on separate lines>
-
-The general form is:
-
-<div class="output">for name in {list}; do
-    commands
-done
-</div>
-
-The list can be a sequence of numbers or letters, or a group of files specified with wildcard characters:
-
-    for i in {3,2,1,liftoff}; do echo $i; done  
-    for x in *.fq.gz; do echo $x; zcat $x | wc -l; done
-
-
- A "while" loop is more convenient than a "for" loop ... if you don't readily know how many iterations of the loop you want:
-
-<div class="output">while {condition}; do
-    commands
-done
-</div>
 
 
 Open a new text file using the text editor "nano":
@@ -999,8 +990,6 @@ Make it executable:
 And now we can execute the entire loop using the script. Note that there is only one argument now, the number of reads to use:
 
     ./get_nucl_counts_loop.sh 100
-
-
 
 
 ## Quiz 5
