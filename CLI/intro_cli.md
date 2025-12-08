@@ -167,7 +167,7 @@ The '-R' option, for example, causes ls to list directories and files *recursive
 
 The manual page for each command lists available options and describes their functions. To look up a command in the manual pages type "man" and then the command name.
 
-   man ls
+    man ls
 
 Navigate this page using the up and down arrow keys, and then type 'q' to quit out of the manual and return to the shell.
 
@@ -194,6 +194,7 @@ The location of any directory can be described in two ways:
 
 * the absolute path begins from the root
 * the relative path begins from the present working directory
+
 
     cd /
     cd home
@@ -265,7 +266,7 @@ A single \<tab\> auto-completes file or directory names when there's only one na
     cd # go to your home directory
     cd fund
 
-\<tab\> with no enter may complete to 'fundamentals_2025' - if not, press tab a second time to see available options. Another tab should complete the path to fundamentals_2025/cli.
+\<tab\> with no enter may complete to 'fundamentals_2025' - if not, press tab a second time to see available options. Another tab should complete the path to fundamentals_2025/cli. At that point, press enter to run the command.
 
     ls r
 
@@ -389,7 +390,7 @@ Here are some more ways to make editing previous commands, or novel commands tha
     <ctrl-a>  # go to the beginning of the line
     <ctrl-e>  # go to the end of the line
     # left and right arrow keys will move one character at a time
-    <ctrl-left> # will move one word at a time to the left
+    <ctrl-left> # will move one word at a time to the left (may be option-left with some OS)
     <ctrl-right> # will move one word at a time to the right
     # now use left and right to move to a single word (surrounded by whitespace: spaces or tabs)
     <ctrl-k>  # delete from here to end of line
@@ -409,8 +410,8 @@ You can also search your history from the command line:
 
 As you work on the command line, you may find combinations of options you use frequently. If you would like to save keystrokes, you can create a shortcut to your command using 'alias'.
 
-        alias ll='ls -lah'
-        ll
+    alias ll='ls -lah'
+    ll
 
 This shortcut will remain valid until the session ends. If you open a new shell, you will need to run the alias line again in order to make your customized 'll' command available.
 
@@ -423,9 +424,12 @@ Command line tools are designed to be modular. Each one has a straightforward us
 The pipe ('\|') passes output of one command to another command as input.
 
     head region.bed | wc
-    head region.bed | wc | cut -f 2 # print the second field
-    tail region.bed | sort # sort the last 10 lines of the BED file
-    tail region.bed | sort -rnk 2 # use man sort to see what these options do!
+    head region.bed | cut -f 2       # print the second field
+    head region.bed | cut -f2 | sort # not a numeric sort!
+    man sort                         # remember: q to quit the manual
+    head region.bed | cut -f2 | sort -n
+    tail region.bed | grep CHR38     # grep selects lines containing the provided pattern
+    tail region.bed | grep CHR38 | cut -f2,3
 
 ### Redirection
 
@@ -436,14 +440,16 @@ The redirection characters ('>' and '>>') allow you to put output into files.
     head region.bed | wc > region_stats.txt # overwrote the region_stats file
     cat region_stats.txt
 
-#### Appending
+### Appending
 
 To add to the end of a file instead of overwriting, use '>>'.
 
-    tail +10 region.bed >> region_stats.txt
+    wc region.bed > region_stats.txt # overwrite again
+    cat region_stats.txt
+    wc region2.bed >> region_stats.txt
     cat region_stats.txt
 
-#### STDOUT and STDERR
+### STDOUT and STDERR
 
 Programs can write to two separate output streams, 'standard out' (STDOUT), and 'standard error' (STDERR). The former is generally for direct output of a program, while the latter is supposed to be used for reporting problems. Some bioinformatics tools use STDERR to report summary statistics about the output, but this is probably bad practice. Default behavior in a lot of cases is to dump both STDOUT and STDERR to the screen, unless you specify otherwise. In order to nail down what goes where, and record it for posterity:
 
@@ -452,6 +458,7 @@ Programs can write to two separate output streams, 'standard out' (STDOUT), and 
 the 1st output, STDOUT, goes to 'chars.txt'  
 the 2nd output, STDERR, goes to 'any.err'  
 
+    ls
     cat chars.txt
 
 Contains the character count of the file genome.fa
@@ -493,6 +500,7 @@ To demonstrate removing directories, let's first create a temporary directory fo
 OK, let's destroy what we just created:
 
     cd ../
+    ls
     rmdir tmp  # 'rmdir' means 'remove directory', but this shouldn't work!
     rm tmp/first.txt
     rmdir tmp  # should succeed now
@@ -554,7 +562,7 @@ As file sizes get large, you'll often see compressed files, or whole compressed 
     head region.bed
     gzip region.bed
     ls
-    cat region.bed.gz # no longer human readable
+    cat region.bed.gz # no longer human-readable
 
 To uncompress a file
 
@@ -564,7 +572,9 @@ The '-c' leaves the original file alone, but dumps expanded output to screen
 
     gunzip -c region.bed.gz | head
     ls
-    gunzip region.bed.gz  # uncompresses the file directly
+    gunzip region.bed.gz  # uncompresses the file itself
+    ls
+    head region.bed
 
 Tape archives, or .tar files, are one way to compress entire folders and all contained folders into one file. When they're further compressed they're called 'tarballs'. We can use wget (web get).
 
@@ -619,7 +629,7 @@ The 'ln' command creates a link. **You should, by default, always create a symbo
 
     ln -s PhiX/Illumina/RTA/Sequence/WholeGenomeFasta/genome.fa .
     ls -ltrhaF  # notice the symbolic link pointing at its target
-    grep -c ">" genome.fa
+    grep ">" genome.fa
 
 ## Quiz 4
 
