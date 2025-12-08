@@ -79,8 +79,9 @@ function showResults(myq, qc, rc){
 * Syntax of a command
 * Directory structure and filesystem navigation
 * Repeating (and editing) previous commands
-* Combining commands
-* Creating, moving, and removing files
+* Combining commands and redirecting output
+* Creating and removing files
+* Compression and archives
 * Environment variables and bash wildcard characters
 * Shell scripts and file permissions
 
@@ -423,6 +424,8 @@ The pipe ('\|') passes output of one command to another command as input.
 
     head region.bed | wc
     head region.bed | wc | cut -f 2 # print the second field
+    tail region.bed | sort # sort the last 10 lines of the BED file
+    tail region.bed | sort -rnk 2 # use man sort to see what these options do!
 
 ### Redirection
 
@@ -459,61 +462,47 @@ Empty since no errors occurred.
 
 Saving STDOUT is routine, but remember that explicitly saving STDERR is important on a remote server, since you may not directly see the 'screen' when you're running jobs.
 
+## Removing files and directories
 
-The 'cut' command pieces of lines from a file line by line. This command cuts characters 1 to 3, from every line, from file 'test.txt'
+Occasionally, you may need to clean up files and directories created by accident, or no longer needed.
 
-    cut -c 1-3 test.txt  
+### rm
 
-same thing, piping output of one command into input of another
+We have a number of excess files created in previous sections.
 
-    cat test.txt | cut -c 1-3  
+    ls       # what is in the current directory?
+    ls -lh   # more detail on file sizes
+    wc region.bed region2.bed new_name.bed # how many lines do these files have?
+    diff region.bed region2.bed # are these files the same?
+    diff region.bed new_name.bed
+    rm region2.bed new_name.bed
+    ls
 
-This pipes (i.e., sends the output of) cat to cut to sort (-r means reverse order sort), and then grep searches for pattern ('s') matches (i.e. for any line where an 's' appears anywhere on the line.)
+The 'rm' command removes any files provided as arguments to the command.
 
-    cat test.txt | cut -c 1-3 | sort -r
-    cat test.txt | cut -c 1-3 | sort -r | grep s
+### rmdir
 
-This is a great way to build up a set of operations while inspecting the output of each step in turn. We'll do more of this in a bit.
+To demonstrate removing directories, let's first create a temporary directory for the purpose.
 
-## Create and Destroy
-
-We already learned one command that will create a file, touch. Now let's look at create and removing files and directories.
-
-    cd  # home again
-    mkdir ~/tmp2
-    cd ~/tmp2
+    mkdir tmp
+    cd tmp
     echo 'Hello, world!' > first.txt
-
-echo text then redirect ('>') to a file.
-
-    cat first.txt  # 'cat' means 'concatenate', or just spit the contents of the file to the screen
+    ls
+    cat first.txt
 
 OK, let's destroy what we just created:
 
     cd ../
-    rmdir tmp2  # 'rmdir' means 'remove directory', but this shouldn't work!
-    rm tmp2/first.txt
-    rm tmp2/second.txt  # clear directory first
-    rmdir tmp2  # should succeed now
+    rmdir tmp  # 'rmdir' means 'remove directory', but this shouldn't work!
+    rm tmp/first.txt
+    rmdir tmp  # should succeed now
 
-So, 'mkdir' and 'rmdir' are used to create and destroy (empty) directories. 'rm' to remove files. To create a file can be as simple as using 'echo' and the '>' (redirection) character to put text into a file. Even simpler is the 'touch' command.
+The 'rmdir' command removes empty directories only. To remove a directory and all of its contents, remove all files from within the directory first, or...
 
-    mkdir ~/cli
-    cd ~/cli
-    touch newFile
-    ls -ltra  # look at the time listed for the file you just created
-    cat newFile  # it's empty!
-    sleep 60  # go grab some coffee
-    touch newFile
-    ls -ltra  # same time?
+#### Forced removal
 
-So 'touch' creates empty files, or updates the 'last modified' time. Note that the options on the 'ls' command you used here give you a Long listing, of All files, in Reverse Time order (l, a, r, t).
+When you're on the command line, there's no 'Recycle Bin'. When we've expanded a whole directory tree, we need to be able to quickly remove a directory without clearing each subdirectory and using 'rmdir'.
 
-## Forced Removal
-
-When you're on the command line, there's no 'Recycle Bin'. Since we've expanded a whole directory tree, we need to be able to quickly remove a directory without clearing each subdirectory and using 'rmdir'.
-
-    cd
     mkdir -p rmtest/dir1/dir2 # the -p option creates all the directories at once
     rmdir rmtest # gives an error since rmdir can only remove directories that are empty
     rm -rf rmtest # will remove the directory and EVERYTHING in it
@@ -558,20 +547,24 @@ submitButton3.addEventListener('click', function() {showResults(myQuestions3, qu
 </script>
 
 
-## Compression and Archives
+## Compression and archives
 
 As file sizes get large, you'll often see compressed files, or whole compressed folders. Note that **any good bioinformatics software** should be able to work with compressed file formats.
 
-    gzip test.txt
-    cat test.txt.gz
+    head region.bed
+    gzip region.bed
+    ls
+    cat region.bed.gz # no longer human readable
 
 To uncompress a file
 
-    gunzip -c test.txt.gz
+    gunzip -c region.bed.gz
 
 The '-c' leaves the original file alone, but dumps expanded output to screen
 
-    gunzip test.txt.gz  # now the file should change back to uncompressed test.txt
+    gunzip -c region.bed.gz | head
+    ls
+    gunzip region.bed.gz  # uncompresses the file directly
 
 Tape archives, or .tar files, are one way to compress entire folders and all contained folders into one file. When they're further compressed they're called 'tarballs'. We can use wget (web get).
 
@@ -627,10 +620,6 @@ The 'ln' command creates a link. **You should, by default, always create a symbo
     ln -s PhiX/Illumina/RTA/Sequence/WholeGenomeFasta/genome.fa .
     ls -ltrhaF  # notice the symbolic link pointing at its target
     grep -c ">" genome.fa
-
-## STDOUT & STDERR
-
-
 
 ## Quiz 4
 
