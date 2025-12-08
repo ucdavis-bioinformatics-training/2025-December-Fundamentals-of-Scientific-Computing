@@ -89,6 +89,26 @@ Specifically in Python:
 **Learning all the nuances of python takes a long time! Our goal here is to introduce you to as many concepts as possible
 but if you are serious about mastering python you will need to apply yourself beyond this introduction.**
 
+## Installation
+We are going to use a python distribution platform, Anaconda. Anaconda is an open source distribution platform for python and R. It was designed to meet the demand of Data Sciences and AI projects. It can be installed on all three operating systems and has 45 million users as of 2024. It includes over 300 packages, offers jupyter Notebooks and jupyter Lab and includes _conda_, the package and environment manager. It makes installing a lot of python packages very easy. Please follow the instructions below to install Anaconda. Instructions for all platforms can be found at https://www.anaconda.com/docs/getting-started/anaconda/install
+- Macs: Two options are available. One is to use the graphic installer. The other is to use the Command Line installer.
+  - For graphic installer, please go to https://www.anaconda.com/download and follow the instructions in the "Download Now" panel. This option installs Anaconda in /opt/anacondas in the file system. In order to install Anaconda into your Home directory (especially in the case where there are multiple users), Command Line installation is recommended.
+  - For Command Line installer
+    - Mac Arm architecture
+      - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-arm64.sh
+      - Install: bash ~/Anaconda3-2025.06-0-MacOSX-arm64.sh
+    - Mac Intel architecture
+      - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-x86_64.sh
+      - Install: bash ~/Anaconda3-2025.06-0-MacOSX-x86_64.sh
+- Linux:
+  - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
+  - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
+- Windows: Please install in your ubuntu subsystem so that conda is available for installing other python packages
+  - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
+  - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
+
+After Anaconda is successfully installed, please open a new Command Line interface to see the effect.
+
 ## Hello World!
 
 **[Input:]**
@@ -828,6 +848,8 @@ In another example, we are going to update the dictionary with an additional pie
 ```python
 dict_example.update({"pathway": "Mitochondria disease pathway"})
 dict_example
+dict_example.update(pathway_members = 10)
+dict_example
 ```
 
 **[Output:]**
@@ -842,7 +864,9 @@ dict_example
  'discription': 'creatine kinase, mitochondrial 2',
  'loc': 'Chromosome 5: 81,233,320-81,266,399',
  'strand': '+',
- 'pathway': 'Mitochondria disease pathway'}
+ 'pathway': 'Mitochondria disease pathway',
+ 'pathway2': 'Mitochondria disease pathway',
+ 'pathway_members': 10}
 ```
 
 ---
