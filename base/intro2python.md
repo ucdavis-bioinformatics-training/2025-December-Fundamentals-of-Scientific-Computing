@@ -92,7 +92,7 @@ but if you are serious about mastering python you will need to apply yourself be
 ## Installation
 We are going to use a python distribution platform, Anaconda. Anaconda is an open source distribution platform for python and R. It was designed to meet the demand of Data Sciences and AI projects. It can be installed on all three operating systems and has 45 million users as of 2024. It includes over 300 packages, offers jupyter Notebooks and jupyter Lab and includes _conda_, the package and environment manager. It makes installing a lot of python packages very easy. Please follow the instructions below to install Anaconda. Instructions for all platforms can be found at <https://www.anaconda.com/docs/getting-started/anaconda/install>
 - Macs: Two options are available. One is to use the graphic installer. The other is to use the Command Line installer.
-  - For graphic installer, please go to https://www.anaconda.com/download and follow the instructions in the "Download Now" panel. This option installs Anaconda in /opt/anacondas in the file system. In order to install Anaconda into your Home directory (especially in the case where there are multiple users), Command Line installation is recommended.
+  - For graphic installer, please go to <https://www.anaconda.com/download> and follow the instructions in the "Download Now" panel. This option installs Anaconda in /opt/anacondas in the file system. In order to install Anaconda into your Home directory (especially in the case where there are multiple users), Command Line installation is recommended.
   - For Command Line installer
     - Mac Arm architecture
       - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-arm64.sh
