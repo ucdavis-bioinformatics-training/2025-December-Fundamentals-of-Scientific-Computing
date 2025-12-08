@@ -280,27 +280,27 @@ myQuestions1 = [
       d: "-H"
     },
     correctAnswer: "a"
-  }
+  },
   {
     question: "What is the tilde short for?",
-  answers: {
-    a: "Your home directory",
-    b: "Your user name",
-    c: "Your current directory",
-    d: "The root directory"
-  },
-  correctAnswer: "a"
-},
-{
-  question: "From the /usr/bin directory, verify that the two following commands are equivalent:<br/><br/>cd ../../lib/init/<br/>cd ../../../../../../../lib/init<br/><br/>Why are these very different-looking commands equivalent?",
-  answers: {
-    a: "The cd command knows where your home directory resides",
-    b: "The terminal ignores excess dots",
-    c: "Because going one directory up from root just takes you back to root",
-    d: "Home is the root directory"
-  },
-  correctAnswer: "c"
-}
+    answers: {
+      a: "Your home directory",
+      b: "Your user name",
+      c: "Your current directory",
+      d: "The root directory"
+    },
+    correctAnswer: "a"
+   },
+  {
+    question: "From the /usr/bin directory, verify that the two following commands are equivalent:<br/><br/>cd ../../lib/init/<br/>cd ../../../../../../../lib/init<br/><br/>Why are these very different-looking commands equivalent?",
+    answers: {
+      a: "The cd command knows where your home directory resides",
+      b: "The terminal ignores excess dots",
+      c: "Because going one directory up from root just takes you back to root",
+      d: "Home is the root directory"
+    },
+    correctAnswer: "c"
+  }
 ];
 
 buildQuiz(myQuestions1, quizContainer1);
@@ -310,7 +310,7 @@ submitButton1.addEventListener('click', function() {showResults(myQuestions1, qu
 
 ## Exercise 1
 
-Practice moving around directories from the root directory. Practice listing directories and moving around to different directories using both absolute and relative paths. Make sure to practice and use tab-completion a lot! Find your root directory in a File Explorer and practice navigating there and then doing the same navigation on the command-line.
+Practice moving around directories from the root directory. List directories and change directories using both absolute and relative paths. Use tab-completion! Find your root directory in a File Explorer and practice navigating there and then doing the same navigation on the command-line.
 
 ## Repeating (and editing) previous commands
 
