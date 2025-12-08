@@ -217,28 +217,80 @@ Another special character is '~', which represents the user's home directory. Th
 
 Sometimes you will see a path begin with a single "." character. One dot is the relative path to the pwd, such that `./file.txt` is the path to a text file within the current directory.
 
+### mkdir
+
+To add a directory to the filesystem, use 'mkdir.'
+
+    mkdir fundamentals_2025
+    mkdir fundamentals_2025/cli
+
+### wget
+
+As a rule, we try to avoid manually entering data on the command line. Here, we download an example dataset from a publicly exposed URL.
+
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2024-June-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/region.bed -O region.bed
+    ls
+    pwd
+
+This code downloaded a copy of the region.bed file to the pwd. Let's relocate it into our new fundamentals_2025/cli directory.
+
+### mv
+
+The move (mv) command takes two arguments: what to move and where to put it.
+
+    mv region.bed fundamentals_2025/cli
+
+It can also be used to rename a file if necessary.
+
+    cd fundamentals_2025/cli
+    ls
+    mv region.bed new_name.bed
+    ls
+
+### cp
+
+Copying follows the same logic.
+
+    cp new_name.bed region.bed
+    cp region.bed region2.bed
+    ls
+
 ### Tab completion
 
 As a text-only interface, the CLI requires commands, options, and arguments to be typed correctly. Tab completion offers a way to save time and avoid errors.
 
 A single \<tab\> auto-completes file or directory names when there's only one name that could be completed correctly. If multiple files could satisfy the tab-completion, then nothing will happen after the first \<tab\>. In this case, press \<tab\> a second time to list all the possible completing names. Note that if you've already made a mistake that means that no files will ever be completed correctly from its current state, then repeated \<tab\> presses will do nothing.
 
-touch updates the timestamp on a file, here we use it to create three empty files.
-
     cd # go to your home directory
-    mkdir ~/tmp
-    cd ~/tmp
-    touch one seven september # creates three empty files
-    ls o
+    cd fund
 
-\<tab\> with no enter should complete to 'one', then enter
+\<tab\> with no enter may complete to 'fundamentals_2025' - if not, press tab a second time to see available options. Another tab should complete the path to fundamentals_2025/cli.
 
-    ls s
+    ls r
 
-\<tab\> with no enter completes up to 'se' since that's in common between seven and september. \<tab\> again and no enter. This second \<tab\> should cause listing of seven and september. Type 'v' then \<tab\> and no enter now it's unique to seven, and should complete to seven. Enter runs 'ls seven' command.
+\<tab\> with no enter should complete up to 'region' since that's in common between region.bed and region2.bed. \<tab\> again to see the options. You should see two filenames. Type '2' then \<tab\>. At this point, there is only one file available that meets the requirements, and tab completion should be able to fill in the remainder of the filename. Enter runs 'ls region2.bed' command.
 
 The utility of tab completion cannot be overstated. Watch experienced users type; they hit tab once or twice in between almost every character. Use tab completion early and often, and you will save yourself a huge amount of typing and time.
 
+### wc
+
+What is this region.bed file? Let's start by getting an idea of it's size.
+
+    wc region.bed
+
+The word count command measures the number of lines, space-delimited words, and characters (counting whitespace, including return characters).
+
+### head and tail
+
+To take a look at the first (10 by default) lines of a file, use 'head'.
+
+    head region.bed
+    head --lines 5 region.bed
+
+Tail works the same way, but with the last lines instead.
+
+    tail region.bed
+    tail --lines 1 region.bed
 
 ## Quiz 1
 
@@ -354,10 +406,74 @@ You can also search your history from the command line:
 
 ### Aliasing
 
-Quick aside: what if I want to use same options repeatedly? and be lazy? You can create a shortcut to another command using 'alias'.
+As you work on the command line, you may find combinations of options you use frequently. If you would like to save keystrokes, you can create a shortcut to your command using 'alias'.
 
         alias ll='ls -lah'
         ll
+
+This shortcut will remain valid until the session ends. If you open a new shell, you will need to run the alias line again in order to make your customized 'll' command available.
+
+## Combining commands and redirecting output
+
+Command line tools are designed to be modular. Each one has a straightforward use-case (e.g. list files in a directory), with a fixed number of options available to modify it's behavior. The true power of the command line only becomes apparent when combining these tools.
+
+### Pipes
+
+The pipe ('\|') passes output of one command to another command as input.
+
+    head region.bed | wc
+    head region.bed | wc | cut -f 2 # print the second field
+
+### Redirection
+
+The redirection characters ('>' and '>>') allow you to put output into files.
+
+    wc region.bed > region_stats.txt
+    cat region_stats.txt # outputs the contents of the file to the terminal
+    head region.bed | wc > region_stats.txt # overwrote the region_stats file
+    cat region_stats.txt
+
+#### Appending
+
+To add to the end of a file instead of overwriting, use '>>'.
+
+    tail +10 region.bed >> region_stats.txt
+    cat region_stats.txt
+
+#### STDOUT and STDERR
+
+Programs can write to two separate output streams, 'standard out' (STDOUT), and 'standard error' (STDERR). The former is generally for direct output of a program, while the latter is supposed to be used for reporting problems. Some bioinformatics tools use STDERR to report summary statistics about the output, but this is probably bad practice. Default behavior in a lot of cases is to dump both STDOUT and STDERR to the screen, unless you specify otherwise. In order to nail down what goes where, and record it for posterity:
+
+    wc -c region.bed 1> chars.txt 2> any.err
+
+the 1st output, STDOUT, goes to 'chars.txt'  
+the 2nd output, STDERR, goes to 'any.err'  
+
+    cat chars.txt
+
+Contains the character count of the file genome.fa
+
+    cat any.err
+
+Empty since no errors occurred.
+
+Saving STDOUT is routine, but remember that explicitly saving STDERR is important on a remote server, since you may not directly see the 'screen' when you're running jobs.
+
+
+The 'cut' command pieces of lines from a file line by line. This command cuts characters 1 to 3, from every line, from file 'test.txt'
+
+    cut -c 1-3 test.txt  
+
+same thing, piping output of one command into input of another
+
+    cat test.txt | cut -c 1-3  
+
+This pipes (i.e., sends the output of) cat to cut to sort (-r means reverse order sort), and then grep searches for pattern ('s') matches (i.e. for any line where an 's' appears anywhere on the line.)
+
+    cat test.txt | cut -c 1-3 | sort -r
+    cat test.txt | cut -c 1-3 | sort -r | grep s
+
+This is a great way to build up a set of operations while inspecting the output of each step in turn. We'll do more of this in a bit.
 
 ## Create and Destroy
 
@@ -371,11 +487,6 @@ We already learned one command that will create a file, touch. Now let's look at
 echo text then redirect ('>') to a file.
 
     cat first.txt  # 'cat' means 'concatenate', or just spit the contents of the file to the screen
-
-why 'concatenate'? try this:
-
-    cat first.txt first.txt first.txt > second.txt
-    cat second.txt
 
 OK, let's destroy what we just created:
 
@@ -445,34 +556,6 @@ myQuestions3 = [
 buildQuiz(myQuestions3, quizContainer3);
 submitButton3.addEventListener('click', function() {showResults(myQuestions3, quizContainer3, resultsContainer3);});
 </script>
-
-## Piping and Redirection
-
-Pipes ('\|') allow commands to hand output to other commands, and redirection characters ('>' and '>>') allow you to put output into files.
-
-    echo 'first' > test.txt
-    cat test.txt # outputs the contents of the file to the terminal
-    echo 'second' > test.txt
-    cat test.txt
-    echo 'third' >> test.txt
-    cat test.txt
-
-The '>' character redirects output of a command that would normally go to the screen instead into a specified file. '>' overwrites the file, '>>' appends to the file.
-
-The 'cut' command pieces of lines from a file line by line. This command cuts characters 1 to 3, from every line, from file 'test.txt'
-
-    cut -c 1-3 test.txt  
-
-same thing, piping output of one command into input of another
-
-    cat test.txt | cut -c 1-3  
-
-This pipes (i.e., sends the output of) cat to cut to sort (-r means reverse order sort), and then grep searches for pattern ('s') matches (i.e. for any line where an 's' appears anywhere on the line.)
-
-    cat test.txt | cut -c 1-3 | sort -r
-    cat test.txt | cut -c 1-3 | sort -r | grep s
-
-This is a great way to build up a set of operations while inspecting the output of each step in turn. We'll do more of this in a bit.
 
 
 ## Compression and Archives
@@ -547,22 +630,6 @@ The 'ln' command creates a link. **You should, by default, always create a symbo
 
 ## STDOUT & STDERR
 
-Programs can write to two separate output streams, 'standard out' (STDOUT), and 'standard error' (STDERR). The former is generally for direct output of a program, while the latter is supposed to be used for reporting problems. I've seen some bioinformatics tools use STDERR to report summary statistics about the output, but this is probably bad practice. Default behavior in a lot of cases is to dump both STDOUT and STDERR to the screen, unless you specify otherwise. In order to nail down what goes where, and record it for posterity:
-
-    wc -c genome.fa 1> chars.txt 2> any.err
-
-the 1st output, STDOUT, goes to 'chars.txt'  
-the 2nd output, STDERR, goes to 'any.err'  
-
-    cat chars.txt
-
-Contains the character count of the file genome.fa
-
-    cat any.err
-
-Empty since no errors occured.
-
-Saving STDOUT is pretty routine (you want your results, yes?), but remember that explicitly saving STDERR is important on a remote server, since you may not directly see the 'screen' when you're running jobs.
 
 
 ## Quiz 4
