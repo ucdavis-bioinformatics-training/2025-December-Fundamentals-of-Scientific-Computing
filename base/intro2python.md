@@ -125,6 +125,40 @@ Hello World!
 
 ---
 
+## Functions and how to find help
+As in any other programming language, a function is a predefined set of operations. In order to find the information on what parameters a function requires, one has 2 options:
+- use the help() function
+- use _shift_ + _tab_
+
+**[Input:]**
+
+```python
+help(print)
+```
+
+**[Output:]**
+
+```
+Help on built-in function print in module builtins:
+
+print(*args, sep=' ', end='\n', file=None, flush=False)
+    Prints the values to a stream, or to sys.stdout by default.
+
+    sep
+      string inserted between values, default a space.
+    end
+      string appended after the last value, default a newline.
+    file
+      a file-like object (stream); defaults to the current sys.stdout.
+    flush
+      whether to forcibly flush the stream.
+
+```
+
+---
+
+_*args_ means that the function _print_ can accept any number of arguments.
+
 ## Basic Data Types
 ### Built in data types
 
