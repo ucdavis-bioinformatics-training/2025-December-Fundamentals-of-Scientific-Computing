@@ -213,7 +213,7 @@ table.custom-table tr:hover {
 <tbody>
 <tr><td>Text/Character</td><td>str()</td></tr>
 <tr><td>Numeric</td><td>int(), float(), complex()</td></tr>
-<tr><td>Sequence</td><td>list[], tuple()/(), range()</td></tr>
+<tr><td>Sequence</td><td>list()/[], tuple()/(), range()</td></tr>
 <tr><td>Mapping</td><td>dict()/{} </td></tr>
 <tr><td>Set</td><td>set()/{}, frozenset()</td></tr>
 <tr><td>Boolean</td><td>bool()</td></tr>
