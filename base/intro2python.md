@@ -722,7 +722,7 @@ list_example
 
 ---
 
-We see a new syntax, __variable.function()__. This is the way to call a method that is bound to an object in python. In order to know what methods are bound to an object, we can use the following operation:
+We see a new syntax, __object.function()__. This is the way to call a method that is bound to an object in python. A method is a function that is defined specifically for an object of a class in python. In order to know what methods are bound to an object, we can use the following operation:
 - methods = [method_name for method_name in dir(obj) if callable(getattr(obj, method_name)) and not method_name.startswith("__")]
 
 **[Input:]**
@@ -1074,19 +1074,65 @@ list_dict
 ### <font color="blue">Exercise</font>
 Please apply the methods available for a dictionary object to get familiar with this data type.
 
+
 ### List comprehension
 List comprehension is a very useful method available in python. It creates a new list by performing a pre-defined set of operations on each element of an existing list.
 - Short syntax for better readability
 - Faster operation than a for loop
 - Creates a new list
 
-__New_list = [expression for item in iterable if condition == True]__
+__New_list = <font color="black">[</font><font color="blue">expression</font> <font color="green">for</font> <font color="red">item</font> <font color="green">in</font> <font color="orange">iterable</font> <font color="green">if</font> <font color="purple">condition == True</font><font color="black">]</font>__
 
 **[Input:]**
 
 ```python
+list_values = zip(gene_names, gene_biotypes, n_transcripts, n_orthologues,
+                  n_paralogues, ensembl_IDs, descriptions, locus, strands)
+list_dict = [dict(zip(list_keys, value)) for value in list_values]
+list_dict
+```
 
+**[Output:]**
+
+```
+[{'gene_name': 'CKMT2',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 32,
+  'n_orthologues': 217,
+  'n_paralogues': 4,
+  'ensembl_ID': 'ENSG00000131730',
+  'Description': 'creatine kinase, mitochondrial 2',
+  'loc': 'Chromosome 5: 81,233,320-81,266,399',
+  'strand': '+'},
+ {'gene_name': 'NDUFAF7',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 20,
+  'n_orthologues': 210,
+  'n_paralogues': 0,
+  'ensembl_ID': 'ENSG00000003509',
+  'Description': 'NADH:ubiquinone oxidoreductase complex assembly factor 7',
+  'loc': 'Chromosome 2: 37,231,631-37,253,403',
+  'strand': '+'},
+ {'gene_name': 'AGMAT',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 4,
+  'n_orthologues': 195,
+  'n_paralogues': 2,
+  'ensembl_ID': 'ENSG00000116771',
+  'Description': 'agmatinase (putative)',
+  'loc': 'Chromosome 1: 15,571,699-15,585,078',
+  'strand': '-'}]
 ```
 
 ---
+
+## Let's dissect the operation
+## <font color="black">[</font><font color="blue">dict(zip(list_keys, value))</font> <font color="green">for</font> <font color="red">value</font> <font color="green">in</font> <font color="orange">list_values</font><font color="black">]</font>
+
+### <font color="blue">Exercise</font>
+Create a numeric iterable object and perform the same operation on each element of the object without using a for loop.
+
+### <font color="Orange">Challenge</font>
+- What is the difference between the above _list_dict_ object with _nested_dict_ object?
+- How to modify _list_dict_ to an object that is similar to _nested_dict_?
 
