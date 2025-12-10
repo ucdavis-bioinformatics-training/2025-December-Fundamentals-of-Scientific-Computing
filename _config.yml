@@ -28,6 +28,8 @@ navigation:
   - heading: R
   - title: R
     url: R/intro_R
+  - title: Exercise solutions
+    url: R/solutions
 
   - heading: Python
   - title: Python
