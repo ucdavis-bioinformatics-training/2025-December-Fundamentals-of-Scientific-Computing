@@ -1155,8 +1155,9 @@ annotation = {}
 
 with open("GRCh38.ensembl112.4k.gtf", "r") as f:
 
-    # iterate through all lines in the file
+    # iterate through the file line-by-line
     for line in f:
+        
         # split each line with tab as the delimiter
         fields = line.strip().split("\t")
 
@@ -1186,16 +1187,16 @@ with open("GRCh38.ensembl112.4k.gtf", "r") as f:
             
             annotation[annotation_key] = feature_info
 
+            
 #annotation
 ```
 
 ---
 
-**[Input:]**
+## Visulization
+Data visualization is one essential step in data analysis. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations. It has great control on all aspects of a figure.
 
-```python
+<img src="figures/matplotlib.jpg" alt="Matplotlib" width="70%" align="center"/>
 
-```
 
----
 
