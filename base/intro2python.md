@@ -1194,9 +1194,85 @@ with open("GRCh38.ensembl112.4k.gtf", "r") as f:
 ---
 
 ## Visulization
-Data visualization is one essential step in data analysis. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations. It has great control on all aspects of a figure.
+Data visualization is one essential step in data analysis. There are many libraries that can be used to generate visualizations in python. The following is a short list to get you started.
+- Matplotlib is the most widely used library
+- Seaborn buids on top of matplotlib to generate more polished plots
+- Plotly is known for its application in creating interactive visualizations
+- Bokeh uses _The Grammer of Graphics_ like ggplot but it's native to python
 
 <img src="figures/matplotlib.jpg" alt="Matplotlib" width="70%" align="center"/>
 
+We are going to use the same data set used in Wednesday's R session for some examples of visualization in python.
 
+**[Input:]**
+
+```python
+# load python modules
+import pandas as pd
+
+# read in the birth weight data from your local copy
+data = pd.read_csv("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022_February_Introduction_to_R_for_Bioinformatics/main/birthweight.csv")
+```
+
+---
+
+**[Input:]**
+
+```python
+display(data.head(8))
+```
+
+**[Output:]**
+
+```
+     ID birth.date     location  length  birthweight  head.circumference  \
+0  1107  1/25/1967      General      52         3.23                  36   
+1   697   2/6/1967  Silver Hill      48         3.03                  35   
+2  1683  2/14/1967  Silver Hill      53         3.35                  33   
+3    27   3/9/1967  Silver Hill      53         3.55                  37   
+4  1522  3/13/1967     Memorial      50         2.74                  33   
+5   569  3/23/1967     Memorial      50         2.51                  35   
+6   365  4/23/1967     Memorial      52         3.53                  37   
+7   808   5/5/1967  Silver Hill      48         2.92                  33   
+
+   weeks.gestation smoker  maternal.age  maternal.cigarettes  maternal.height  \
+0               38     no            31                    0              164   
+1               39     no            27                    0              162   
+2               41     no            27                    0              164   
+3               41    yes            37                   25              161   
+4               39    yes            21                   17              156   
+5               39    yes            22                    7              159   
+6               40    yes            26                   25              170   
+7               34     no            26                    0              167   
+
+   maternal.prepregnant.weight  paternal.age  paternal.education  \
+0                           57           NaN                 NaN   
+1                           62          27.0                14.0   
+2                           62          37.0                14.0   
+3                           66          46.0                 NaN   
+4                           53          24.0                12.0   
+5                           52          23.0                14.0   
+6                           62          30.0                10.0   
+7                           64          25.0                12.0   
+
+   paternal.cigarettes  paternal.height  low.birthweight  geriatric.pregnancy  
+0                  NaN              NaN                0                False  
+1                  0.0            178.0                0                False  
+2                  0.0            170.0                0                False  
+3                  0.0            175.0                0                 True  
+4                  7.0            179.0                0                False  
+5                 25.0              NaN                1                False  
+6                 25.0            181.0                0                False  
+7                 25.0            175.0                0                False  
+```
+
+---
+
+**[Input:]**
+
+```python
+
+```
+
+---
 
