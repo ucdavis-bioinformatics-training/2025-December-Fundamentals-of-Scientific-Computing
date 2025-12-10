@@ -89,6 +89,26 @@ Specifically in Python:
 **Learning all the nuances of python takes a long time! Our goal here is to introduce you to as many concepts as possible
 but if you are serious about mastering python you will need to apply yourself beyond this introduction.**
 
+## Installation
+We are going to use a python distribution platform, Anaconda. It was designed to meet the demand of Data Sciences and AI projects. It can be installed on all three operating systems and has 45 million users as of 2024. It includes over 300 packages, offers jupyter Notebooks and jupyter Lab and includes _conda_, the package and environment manager. It makes installing a lot of python packages very easy. Please follow the instructions below to install Anaconda. Instructions for all platforms can be found at <https://www.anaconda.com/docs/getting-started/anaconda/install>
+- Macs: Two options are available. One is to use the graphic installer. The other is to use the Command Line installer.
+  - For graphic installer, please go to <https://www.anaconda.com/download> and follow the instructions in the "Download Now" panel. This option installs Anaconda in /opt/anacondas in the file system. In order to install Anaconda into your Home directory (especially in the case where there are multiple users), Command Line installation is recommended.
+  - For Command Line installer
+    - Mac Arm architecture
+      - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-arm64.sh
+      - Install: bash ~/Anaconda3-2025.06-0-MacOSX-arm64.sh
+    - Mac Intel architecture
+      - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-x86_64.sh
+      - Install: bash ~/Anaconda3-2025.06-0-MacOSX-x86_64.sh
+- Linux:
+  - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
+  - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
+- Windows: Please install in your ubuntu subsystem so that conda is available for installing other python packages later
+  - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
+  - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
+
+After Anaconda is successfully installed, please open a new Command Line interface to see the effect.
+
 ## Hello World!
 
 **[Input:]**
@@ -104,6 +124,40 @@ Hello World!
 ```
 
 ---
+
+## Functions and how to find help
+As in any other programming language, a function is a predefined set of operations. In order to find the information on what parameters a function requires, one has 2 options:
+- use the help() function
+- use _shift_ + _tab_
+
+**[Input:]**
+
+```python
+help(print)
+```
+
+**[Output:]**
+
+```
+Help on built-in function print in module builtins:
+
+print(*args, sep=' ', end='\n', file=None, flush=False)
+    Prints the values to a stream, or to sys.stdout by default.
+
+    sep
+      string inserted between values, default a space.
+    end
+      string appended after the last value, default a newline.
+    file
+      a file-like object (stream); defaults to the current sys.stdout.
+    flush
+      whether to forcibly flush the stream.
+
+```
+
+---
+
+_*args_ means that the function _print_ can accept any number of arguments.
 
 ## Basic Data Types
 ### Built in data types
@@ -159,7 +213,7 @@ table.custom-table tr:hover {
 <tbody>
 <tr><td>Text/Character</td><td>str()</td></tr>
 <tr><td>Numeric</td><td>int(), float(), complex()</td></tr>
-<tr><td>Sequence</td><td>list[], tuple()/(), range()</td></tr>
+<tr><td>Sequence</td><td>list()/[], tuple()/(), range()</td></tr>
 <tr><td>Mapping</td><td>dict()/{} </td></tr>
 <tr><td>Set</td><td>set()/{}, frozenset()</td></tr>
 <tr><td>Boolean</td><td>bool()</td></tr>
@@ -326,7 +380,7 @@ int
 <img src="figures/operators.png" alt="if flow" width="600px"/>
 
 #### <font color='blue'>Exercise</font>
-Creat different data types and perform some operations.
+Creat different data types (integers, floats, booleans and strings) and perform some operations.
 
 ## Sequence data
 
@@ -416,6 +470,20 @@ range_example = range(6)
 **[Input:]**
 
 ```python
+range_example
+```
+
+**[Output:]**
+
+```
+range(0, 6)
+```
+
+---
+
+**[Input:]**
+
+```python
 range_example[0]
 ```
 
@@ -440,7 +508,7 @@ range_example[0] = 3
 ```
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-Cell In[27], line 1
+Cell In[22], line 1
 ----> 1 range_example[0] = 3
 
 TypeError: 'range' object does not support item assignment
@@ -451,23 +519,13 @@ TypeError: 'range' object does not support item assignment
 **[Input:]**
 
 ```python
-range_example
-```
-
----
-
-**[Input:]**
-
-```python
-len(range_example)
-```
-
----
-
-**[Input:]**
-
-```python
 range_example[5]
+```
+
+**[Output:]**
+
+```
+5
 ```
 
 ---
@@ -485,7 +543,7 @@ range_example[6] = 8
 ```
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-Cell In[28], line 1
+Cell In[24], line 1
 ----> 1 range_example[6] = 8
 
 TypeError: 'range' object does not support item assignment
@@ -664,7 +722,7 @@ list_example
 
 ---
 
-We see a new syntax, __variable.function()__. This is the way to call a method that is bound to an object in python. In order to know what methods are bound to an object, we can use the following operation:
+We see a new syntax, __object.function()__. This is the way to call a method that is bound to an object in python. A method is a function that is defined specifically for an object of a class in python. In order to know what methods are bound to an object, we can use the following operation:
 - methods = [method_name for method_name in dir(obj) if callable(getattr(obj, method_name)) and not method_name.startswith("__")]
 
 **[Input:]**
@@ -814,7 +872,7 @@ for key in ["gene_name", "gene_biotype", "n_transcripts"]:
 **[Output:]**
 
 ```
-gene_name:  test
+gene_name:  CKMT2
 gene_biotype:  protein_coding
 n_transcripts:  32
 ```
@@ -828,12 +886,14 @@ In another example, we are going to update the dictionary with an additional pie
 ```python
 dict_example.update({"pathway": "Mitochondria disease pathway"})
 dict_example
+dict_example.update(pathway_members = 10)
+dict_example
 ```
 
 **[Output:]**
 
 ```
-{'gene_name': 'test',
+{'gene_name': 'CKMT2',
  'gene_biotype': 'protein_coding',
  'n_transcripts': 32,
  'n_orthologues': 217,
@@ -842,7 +902,8 @@ dict_example
  'discription': 'creatine kinase, mitochondrial 2',
  'loc': 'Chromosome 5: 81,233,320-81,266,399',
  'strand': '+',
- 'pathway': 'Mitochondria disease pathway'}
+ 'pathway': 'Mitochondria disease pathway',
+ 'pathway_members': 10}
 ```
 
 ---
@@ -1013,19 +1074,65 @@ list_dict
 ### <font color="blue">Exercise</font>
 Please apply the methods available for a dictionary object to get familiar with this data type.
 
+
 ### List comprehension
 List comprehension is a very useful method available in python. It creates a new list by performing a pre-defined set of operations on each element of an existing list.
 - Short syntax for better readability
 - Faster operation than a for loop
 - Creates a new list
 
-__New_list = [expression for item in iterable if condition == True]__
+__New_list = <font color="black">[</font><font color="blue">expression</font> <font color="green">for</font> <font color="red">item</font> <font color="green">in</font> <font color="orange">iterable</font> <font color="green">if</font> <font color="purple">condition == True</font><font color="black">]</font>__
 
 **[Input:]**
 
 ```python
+list_values = zip(gene_names, gene_biotypes, n_transcripts, n_orthologues,
+                  n_paralogues, ensembl_IDs, descriptions, locus, strands)
+list_dict = [dict(zip(list_keys, value)) for value in list_values]
+list_dict
+```
 
+**[Output:]**
+
+```
+[{'gene_name': 'CKMT2',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 32,
+  'n_orthologues': 217,
+  'n_paralogues': 4,
+  'ensembl_ID': 'ENSG00000131730',
+  'Description': 'creatine kinase, mitochondrial 2',
+  'loc': 'Chromosome 5: 81,233,320-81,266,399',
+  'strand': '+'},
+ {'gene_name': 'NDUFAF7',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 20,
+  'n_orthologues': 210,
+  'n_paralogues': 0,
+  'ensembl_ID': 'ENSG00000003509',
+  'Description': 'NADH:ubiquinone oxidoreductase complex assembly factor 7',
+  'loc': 'Chromosome 2: 37,231,631-37,253,403',
+  'strand': '+'},
+ {'gene_name': 'AGMAT',
+  'gene_biotype': 'protein_coding',
+  'n_transcripts': 4,
+  'n_orthologues': 195,
+  'n_paralogues': 2,
+  'ensembl_ID': 'ENSG00000116771',
+  'Description': 'agmatinase (putative)',
+  'loc': 'Chromosome 1: 15,571,699-15,585,078',
+  'strand': '-'}]
 ```
 
 ---
+
+## Let's dissect the operation
+## <font color="black">[</font><font color="blue">dict(zip(list_keys, value))</font> <font color="green">for</font> <font color="red">value</font> <font color="green">in</font> <font color="orange">list_values</font><font color="black">]</font>
+
+### <font color="blue">Exercise</font>
+Create a numeric iterable object and perform the same operation on each element of the object without using a for loop.
+
+### <font color="Orange">Challenge</font>
+- What is the difference between the above _list_dict_ object with _nested_dict_ object?
+- How to modify _list_dict_ to an object that is similar to _nested_dict_?
 
