@@ -1154,6 +1154,8 @@ For example, we are going to read a small example of a genome annotation (gtf) f
 annotation = {}
 
 with open("GRCh38.ensembl112.4k.gtf", "r") as f:
+
+    # iterate through all lines in the file
     for line in f:
         # split each line with tab as the delimiter
         fields = line.strip().split("\t")
