@@ -1,0 +1,146 @@
+---
+title: 'Fundamentals of Scientific Computing: R exercise solutions'
+output:
+  html_document:
+    keep_md: TRUE
+---
+
+```{r}
+birthweight <- read.csv("birthweight.csv")
+```
+
+# Exercise 1
+
+Use the `min()`, `max()`, and `mean()` functions on subsets of the data frame to answer one or more of the following questions. Work together. Often there will be more than one way to arrive at the answer.
+
+- What is the range of paternal ages in the data set?
+
+```{r ex1a}
+summary(birthweight$paternal.age, na.rm = TRUE)
+```
+
+What is the mean maternal age?
+```{r ex1b}
+mean(birthweight$maternal.age)
+```
+
+What is the age of the mother with the highest maternal.cigarettes value?
+```{r ex1c}
+birthweight$maternal.age[birthweight$maternal.cigarettes == max(birthweight$maternal.cigarettes)]
+```
+
+TRUE or FALSE: The mean pre-pregnant weight is lower among women who gave birth to low birth weight children.
+```{r ex1d}
+mean(birthweight$maternal.prepregnant.weight[birthweight$low.birthweight == 1]) < mean(birthweight$maternal.prepregnant.weight[birthweight$low.birthweight == 0])
+```
+
+# Exercise 2
+
+Convert "low.birthweight" from numeric to logical.
+```{r ex2a}
+birthweight$low.birthweight <- as.logical(birthweight$low.birthweight)
+```
+
+Convert "smoker" from character to logical.
+```{r ex2b}
+birthweight$smoker <- birthweight$smoker == "yes"
+```
+
+# Exercise 3
+
+Are preterm babies more likely to have low birth weight?
+```{r ex3a}
+tapply(birthweight$birthweight, birthweight$weeks.gestation < 40, mean)
+```
+```{r ex3b}
+chisq.test(birthweight$low.birthweight, birthweight$weeks.gestation < 40)
+```
+
+What is the ratio of head circumference to length for births at each of the hospitals?
+
+```{r ex3c}
+tapply(birthweight$head.circumference / birthweight$length, birthweight$location, mean)
+```
+
+# Exercise 4
+
+Mean birth weight by smoking status (base R).
+```{r ex4a}
+tapply(birthweight$birthweight, birthweight$smoker, mean)
+```
+Mean birth weight by combination of smoking status and low birth weight status (base R).
+```{r ex4b}
+tapply(birthweight$birthweight, paste0("smoker:", birthweight$smoker, ", low:", birthweight$low.birthweight), mean)
+
+```
+
+Mean birth weight by pre-term or full-term status (tidyverse).
+```{r ex4c}
+library(tidyr)
+library(dplyr)
+library(magrittr)
+birthweight %>%
+  mutate(full.term = weeks.gestation >= 40) %>%
+  group_by(full.term) %>%
+  summarise(mean.birthweight = mean(birthweight),
+            sd.birthweight = sd(birthweight))
+```
+
+Ratio of head circumference to length at each hospital (tidyverse).
+```{r ex4d}
+birthweight %>%
+  mutate(head.length.ratio = head.circumference / length) %>%
+  group_by(location) %>%
+  summarise(mean(head.length.ratio))
+```
+
+# Exercise 5
+
+Are preterm babies more likely to have low birth weight?
+```{r ex5a}
+library(ggplot2)
+
+ggplot(data = birthweight, mapping = aes(x = weeks.gestation < 40, y = birthweight, fill = weeks.gestation < 40)) +
+  geom_boxplot(notch = TRUE) +
+  scale_fill_viridis_d() +
+  guides(fill = "none") +
+  theme_bw()
+```
+
+What is the ratio of head circumference to length for births at each of the hospitals?
+Box plot version:
+```{r ex5b.box}
+ggplot(data = birthweight, mapping = aes(y = head.circumference / length, fill = location)) +
+  geom_boxplot() +
+  scale_fill_viridis_d(option = "magma") +
+  theme_bw() +
+  theme(legend.title = element_blank())
+```
+
+Scatter plot version:
+```{r ex5b.scatter}
+ggplot(data = birthweight, mapping = aes(x = head.circumference, y = length, colour = location)) +
+  geom_point() +
+  geom_smooth() +
+  scale_color_viridis_d(option = "magma")
+```
+
+What is the relationship between maternal and paternal height?
+```{r ex5c}
+ggplot(data = birthweight, mapping = aes(x = maternal.height, y = paternal.height)) +
+  geom_point() +
+  geom_smooth() +
+  coord_equal() +
+  labs(x = "maternal height (cm)", y = "paternal height (cm)") +
+  theme_classic()
+```
+
+What is the relationship between maternal height and length at birth?
+```{r ex5d}
+ggplot(data = birthweight, mapping = aes(x = maternal.height, y = length, color = smoker)) +
+  geom_point() +
+  geom_smooth() +
+  labs(x = "maternal height (cm)", y = "birth length (cm)") +
+  theme_classic()
+```
+

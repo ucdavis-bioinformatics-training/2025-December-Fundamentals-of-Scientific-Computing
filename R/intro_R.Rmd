@@ -383,7 +383,7 @@ Use the `min()`, `max()`, and `mean()` functions on subsets of the data frame to
 - What is the range of paternal ages in the data set?
 - What is the mean maternal age?
 - What is the age of the mother with the highest maternal.cigarettes value?
-- Is the mean pre-pregnant weight higher or lower among women who gave birth to low birth weight children?
+- TRUE or FALSE: The mean pre-pregnant weight is lower among women who gave birth to low birth weight children.
 
 What other questions are of interest to you? Can you answer any of them with the functions we have used so far?
 
@@ -714,8 +714,7 @@ tapply(birthweight$birthweight, birthweight$month, mean)
 Pick one or more of the following questions to answer, or come up with one of your own. Work together. Once you've answered a question in one way, can you come up with alternate code that generates the same answer?
 
 - Are preterm babies more likely to have low birth weight?
-- What is the ratio of maternal cigarettes to paternal cigarettes for births at each of the hospitals?
-- Do taller mothers have taller partners? Do they have longer babies?
+- What is the ratio of head circumference to length for births at each of the hospitals?
 
 ## Merging data frames
 
@@ -1286,8 +1285,9 @@ For more information on ggplot2 check out this [quick reference guide](https://w
 Create a visualization that provides an answer to one of the following questions:
 
 - Are preterm babies more likely to have low birth weight?
-- What is the ratio of maternal cigarettes to paternal cigarettes for births at each of the hospitals?
-- Do taller mothers have taller partners? Do they have longer babies?
+- What is the ratio of head circumference to length for births at each of the hospitals?
+- What is the relationship between maternal and paternal height?
+- What is the relationship between parental height and length at birth?
 
 # Troubleshooting
 
