@@ -1081,7 +1081,7 @@ List comprehension is a very useful method available in python. It creates a new
 - Faster operation than a for loop
 - Creates a new list
 
-__New_list = <font color="black">[</font><font color="blue">expression</font> <font color="green">for</font> <font color="red">item</font> <font color="green">in</font> <font color="orange">iterable</font> <font color="green">if</font> <font color="purple">condition == True</font><font color="black">]</font>__
+#### __New_list = <font color="black">[</font><font color="blue">expression</font> <font color="green">for</font> <font color="red">item</font> <font color="green">in</font> <font color="orange">iterable</font> <font color="green">if</font> <font color="purple">condition == True</font><font color="black">]</font>__
 
 **[Input:]**
 
@@ -1126,13 +1126,74 @@ list_dict
 
 ---
 
-## Let's dissect the operation
-## <font color="black">[</font><font color="blue">dict(zip(list_keys, value))</font> <font color="green">for</font> <font color="red">value</font> <font color="green">in</font> <font color="orange">list_values</font><font color="black">]</font>
+### Let's dissect the operation
+#### <font color="black">[</font><font color="blue">dict(zip(list_keys, value))</font> <font color="green">for</font> <font color="red">value</font> <font color="green">in</font> <font color="orange">list_values</font><font color="black">]</font>
 
 ### <font color="blue">Exercise</font>
 Create a numeric iterable object and perform the same operation on each element of the object without using a for loop.
 
 ### <font color="Orange">Challenge</font>
 - What is the difference between the above _list_dict_ object with _nested_dict_ object?
-- How to modify _list_dict_ to an object that is similar to _nested_dict_?
+- How to modify _list_dict_ to an object that is the same as _nested_dict_?
+
+## File handling
+
+Python offers general-purpose file handling that offers efficient ways to deal with very large data. The biggest advantage that python has comparing to R is the ability to read file line by line to reduce memory usage for large volume data.
+- open() is the key function used in file handling
+- read(), readline() functions for read files
+- write(), writeline() functions for write to files
+- close() closes a file that has been open to avoid file corruption and to free system resources
+- _with_ statement allows automatic file closing
+
+For example, we are going to read a small example of a genome annotation (gtf) file and parse the information using what we have learned so far.
+
+**[Input:]**
+
+```python
+## Initialize the dictionary that will hold the parsed information
+annotation = {}
+
+with open("GRCh38.ensembl112.4k.gtf", "r") as f:
+    for line in f:
+        # split each line with tab as the delimiter
+        fields = line.strip().split("\t")
+
+        # initialize a dictionary to hold the attribute info
+        attributes = {}
+
+        # only parse the lines with "gene" in the 3rd column
+        if len(fields) == 9 and fields[2] == "gene":
+ 
+            attr_pairs = [attr.strip().split(" ") for attr in fields[8].strip().split(";")]
+            
+            for pair in attr_pairs[:-1]:
+                key = pair[0]
+                value = pair[1].strip('"')
+                attributes[key] = value
+                if key == "gene_id":
+                    annotation_key = value
+
+            feature_info = {
+            "seqname": fields[0],
+            "source": fields[1],
+            "start": fields[3],
+            "end": fields[4],
+            "strand": fields[6],
+            "attributes": attributes
+            }
+            
+            annotation[annotation_key] = feature_info
+
+#annotation
+```
+
+---
+
+**[Input:]**
+
+```python
+
+```
+
+---
 
