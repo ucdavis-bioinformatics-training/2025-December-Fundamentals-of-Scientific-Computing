@@ -27,7 +27,7 @@ navigation:
 
   - heading: R
   - title: R
-    url: base/r_prerequisites
+    url: R/intro_R
 
   - heading: Python
   - title: Python
