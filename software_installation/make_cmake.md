@@ -23,6 +23,20 @@ Installing Simple Bioinformatics Software
 
 ---
 
+## For MacOS
+
+	brew install make
+	brew install gcc
+	brew install ncurses
+	brew install xz
+	brew install zlib
+	brew install hdf5
+	brew install autoconf
+	brew install cmake
+
+
+---
+
 **1\.** Let's spend some time installing software. We will first install an Illumina read trimmer called **sickle** written by members of the Bioinformatics Core. The source code for many bioinformatics software are on github.... sickle is found on the [Bioinformatics Core github page](https://github.com/ucdavis-bioinformatics).
 
 ---
