@@ -176,7 +176,7 @@ Create a HTStream install directory in software. Create a directory called "buil
 
 From the build directory, we are going to run cmake using the CMAKE_INSTALL_PREFIX option:
 
-	cmake -DCMAKE_INSTALL_PREFIX=/home/joshi/software/hts_install ..
+	cmake -DCMAKE_INSTALL_PREFIX=$HOME/software/hts_install ..
 
 What happened? This failed because you are missing a library. You should see an error something like this:
 
@@ -216,7 +216,7 @@ For Macs:
 
 Then run cmake again:
 
-	cmake -DCMAKE_INSTALL_PREFIX=/home/joshi/software/hts_install ..
+	cmake -DCMAKE_INSTALL_PREFIX=$HOME/software/hts_install ..
 
 Once cmake is done, then we run 'make' and 'make install' as before:
 
