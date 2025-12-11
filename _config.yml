@@ -40,6 +40,8 @@ navigation:
     url: software_installation/make_cmake
   - title: Apptainer
     url: software_installation/apptainer
+  - title: Blast Primer
+    url: https://github.com/iankorf/blast-primer
 
   - heading: Support
   - title: Zoom
