@@ -38,6 +38,8 @@ navigation:
   - heading: Installations
   - title: Make and CMake
     url: software_installation/make_cmake
+  - title: Apptainer
+    url: software_installation/apptainer
 
   - heading: Support
   - title: Zoom
