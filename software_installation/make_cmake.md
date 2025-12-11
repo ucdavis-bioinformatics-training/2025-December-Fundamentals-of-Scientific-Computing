@@ -172,7 +172,7 @@ Now, as an exercise, add the correct directory to your path so that you can run 
 
 ## Using cmake
 
-Now we will compile a piece of software using cmake. cmake is another build system (like make) that is used for compiling and installing software. It basically sets up the build environment for make so that it can easily run on multple systems. First, let's clone the 'megahit' software github repo.
+Now we will compile a piece of software using cmake. cmake is another build system (like make) that is used for compiling and installing software. It basically sets up the build environment for make so that it can easily run on multple systems. First, let's clone the 'HTStream' software github repo.
 
 	cd ~/software
 	git clone https://github.com/s4hts/HTStream.git
