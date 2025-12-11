@@ -133,7 +133,7 @@ This creates a new, empty "samtools_install" directory in our previously created
 
 **12\.** Now, you will notice that the "samtools-1.22.1" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory (use your home directory) where we want the final product to go (using the \-\-prefix flag). Mac users will have a path like "/Users/joshi/software/samtools_install".:
 
-	./configure --prefix=~/software/samtools_install
+	./configure --prefix=$HOME/software/samtools_install
 
 This will scan your system and make sure it has all of the necessary components to compile samtools. Once that is done, run make:
 
