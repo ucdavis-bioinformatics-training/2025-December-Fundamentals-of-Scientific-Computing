@@ -22,7 +22,7 @@ Activate the environment:
 
 	conda activate apptainer-1.4.5
 
-Now we are ready to create our Apptainer file. In the Braker documentation, take a look at the [Container section](https://github.com/Gaius-Augustus/BRAKER?tab=readme-ov-file#container). Here they show us how to create our own Apptainer file, except they use Singularity, however, the commands are the same.
+Now we are ready to create our Apptainer file. In the Braker documentation, take a look at the [Container section](https://github.com/Gaius-Augustus/BRAKER?tab=readme-ov-file#container). Here they show us how to create our own Apptainer file, except they use Singularity. However, the commands are the same.
 
 	apptainer build braker3.sif docker://teambraker/braker3:latest
 
