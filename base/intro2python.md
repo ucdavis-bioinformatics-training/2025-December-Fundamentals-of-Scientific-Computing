@@ -95,7 +95,7 @@ We are going to use a python distribution platform, Anaconda. It was designed to
 - Macs: Two options are available. One is to use the graphic installer. The other is to use the Command Line installer.
   - For graphic installer, please go to <https://www.anaconda.com/download> and follow the instructions in the "Download Now" panel. This option installs Anaconda in /opt/anacondas in the file system. In order to install Anaconda into your Home directory (especially in the case where there are multiple users), Command Line installation is recommended.
   - For Command Line installer
-    - Mac Arm architecture
+    - Mac Arm64 architecture
       - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-arm64.sh
       - Install: bash ~/Anaconda3-2025.06-0-MacOSX-arm64.sh
     - Mac Intel architecture
