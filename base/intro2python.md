@@ -607,7 +607,7 @@ The  20 th amino acid is:  F
 ---
 
 ### List
-A list can be created by using the function **list()** or by simply using **[]**.
+A list can be created by using the function **list()** and by using **[]**.
 
 **[Input:]**
 
