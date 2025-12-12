@@ -97,16 +97,16 @@ We are going to use a python distribution platform, Anaconda. It was designed to
   - For Command Line installer
     - Mac Arm64 architecture
       - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-arm64.sh
-      - Install: bash ~/Anaconda3-2025.06-0-MacOSX-arm64.sh
+      - Install: bash Anaconda3-2025.06-0-MacOSX-arm64.sh
     - Mac Intel architecture
       - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-MacOSX-x86_64.sh
-      - Install: bash ~/Anaconda3-2025.06-0-MacOSX-x86_64.sh
+      - Install: bash Anaconda3-2025.06-0-MacOSX-x86_64.sh
 - Linux:
   - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
-  - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
+  - Install: bash Anaconda3-2025.06-0-Linux-x86_64.sh
 - Windows: Please install in your ubuntu subsystem so that conda is available for installing other python packages later
   - Download: wget https://repo.anaconda.com/archive/Anaconda3-2025.06-0-Linux-x86_64.sh
-  - Install: bash ~/Anaconda3-2025.06-0-Linux-x86_64.sh
+  - Install: bash Anaconda3-2025.06-0-Linux-x86_64.sh
 
 After Anaconda is successfully installed, please open a new Command Line interface to be able to use the installed libraries. If you have chosen to ask the installer not to add configuration to your initialize conda every time you open a new shell, you will have to do it manualy when you need to access any program that Anaconda has installed. Using the following commands in the new Command Line window will accomplish this task.
 
