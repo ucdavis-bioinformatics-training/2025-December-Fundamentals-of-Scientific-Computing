@@ -114,6 +114,11 @@ source \<PATH_TO_CONDA\>/bin/activate
 <br>
 conda init --all
 
+The way to launch a jupyter lab session in command line is to use the following command. <br>
+<font size=4>jupyter lab --no-browser</font>
+<br>
+Once this command is run, there will be url generated and you can copy to your web browser to start the interactive session.
+
 ## Hello World!
 
 **[Input:]**
