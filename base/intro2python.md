@@ -1177,9 +1177,12 @@ with open("GRCh38.ensembl112.4k.gtf", "r") as f:
                 key = pair[0]
                 value = pair[1].strip('"')
                 attributes[key] = value
+
+                # extract gene id information as the key for each gene record
                 if key == "gene_id":
                     annotation_key = value
 
+            # create a dictionary using the gene information extracted above
             feature_info = {
             "seqname": fields[0],
             "source": fields[1],
