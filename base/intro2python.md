@@ -1163,6 +1163,10 @@ Python offers general-purpose file handling that offers efficient ways to deal w
 
 For example, we are going to read a small example of a genome annotation (gtf) file and parse the information using what we have learned so far.
 
+First let's download a small gtf file using command line.
+
+wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2025-December-Fundamentals-of-Scientific-Computing/main/base/GRCh38.ensembl112.4k.gtf
+
 **[Input:]**
 
 ```python
