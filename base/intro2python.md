@@ -1716,11 +1716,3 @@ plt.subplots_adjust(bottom=0.12)
 ## Final note
 ### <font color='darkred'>The materials for Python in this workshop is meant to introduce you to some concepts/syntax in Python and is far from a comprehensive guide. It is important to remember that gaining a deep understanding of the fundamentals of programming, such as how to breakdown a complex problem, recognize patterns, and design elegant solutions is the only way to become independent in programming.</font>
 
-**[Input:]**
-
-```python
-
-```
-
----
-
