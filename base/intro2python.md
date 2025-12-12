@@ -117,7 +117,14 @@ conda init --all
 The way to launch a jupyter lab session in command line is to use the following command. <br>
 <font size=4>jupyter lab --no-browser</font>
 <br>
-Once this command is run, there will be url generated and you will see a message similar to the following to provide  your web browser to start the interactive session.
+Once this command is run, you will see a message similar to the following to provide urls for your web browser to start the interactive session.
+
+    To access the server, open this file in a browser:
+        file:///Users/jli/Library/Jupyter/runtime/jpserver-86015-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8892/lab?token=99e0c0136bcee32edfc8ce37c673f5dc1940bb2a307fc3d3
+        http://127.0.0.1:8892/lab?token=99e0c0136bcee32edfc8ce37c673f5dc1940bb2a307fc3d3
+
 
 ## Hello World!
 
@@ -569,8 +576,7 @@ Range function is usually used in a for loop. For example,
 protein_seq = "MTKAAVGLVKNRAWGIPSDF"
 protein_len = len(protein_seq)
 for i in range(protein_len):
-    print(f"The ", i+1, "th amino acid is: ", protein_seq[i])
-
+    print("The ", i+1, "th amino acid is: ", protein_seq[i])
 ```
 
 **[Output:]**
@@ -601,12 +607,12 @@ The  20 th amino acid is:  F
 ---
 
 ### List
-A list can be created by using the function **list()** or by simply using **()**.
+A list can be created by using the function **list()** or by simply using **[]**.
 
 **[Input:]**
 
 ```python
-list_example = list(("NDUFAF7", "AGMAT", "TOP1MT", "IARS2", "MTFP1", "SLC25A51", "PRORP", "SLC25A52", "ENDOG"))
+list_example = ["NDUFAF7", "AGMAT", "TOP1MT", "IARS2", "MTFP1", "SLC25A51", "PRORP", "SLC25A52", "ENDOG"]
 ```
 
 ---
@@ -870,7 +876,7 @@ dict_keys(['gene_name', 'gene_biotype', 'n_transcripts', 'n_orthologues', 'n_par
 
 ---
 
-How does one extract the values of more than one key. For example, let's try to extract values of the first 5 keys, _gene_name_, _gene_biotype_, and _n_transcripts_. This can be done easily using a for loop.
+How does one extract the values of more than one key. For example, let's try to extract values of some keys, _gene_name_, _gene_biotype_, and _n_transcripts_. This can be done easily using a for loop.
 
 **[Input:]**
 
@@ -1208,7 +1214,7 @@ with open("annotation.tsv", "w") as outfile:
 
 ---
 
-## Visulization
+## Visualization
 Data visualization is one essential step in data analysis. There are many libraries that can be used to generate visualizations in python. The following is a short list to get you started.
 - Matplotlib is the most widely used library
 - Seaborn buids on top of matplotlib to generate more polished plots
